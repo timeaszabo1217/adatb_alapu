@@ -1,0 +1,107 @@
+:root {
+    --background: #f6f1ee;
+    --font: #1b1b1b;
+    --green: #546248;
+    --brown: #59503f;
+    --yellowish: #f7e8dc;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #101010;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--yellowish);
+}
+
+@font-face {
+    font-family: "Lora";
+    src: url("../assets/fonts/lora-regular-webfont.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Tenor";
+    src: url("../assets/fonts/TenorSans.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Proxima";
+    src: url("../assets/fonts/Proxima-Nova-Regular.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+.user-select-none {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+}
+
+body {
+    background: var(--background);
+    color: var(--font);
+    margin: 0;
+    width: 100%;
+    transition: 0.5s background ease;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+main {
+    animation: fadeIn 1s;
+}
+
+h1 {
+    font-family: Tenor, serif;
+}
+
+h2 {
+    font-family: Lora, serif;
+}
+
+p, a {
+    font-family: Proxima, serif;
+}
+
+.continueButoon {
+    display: block;
+    width: 150px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: var(--yellowish);
+    color: var(--font);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.container {
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
