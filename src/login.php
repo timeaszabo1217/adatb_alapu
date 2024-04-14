@@ -1,3 +1,8 @@
+<?php
+$connection = null;
+include 'process.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +16,6 @@
     <h1>Bejelentkezés</h1>
 
     <?php
-    include 'process.php';
 
     if(isset($_POST['login'])){
         $email = $_POST['email'];
@@ -25,6 +29,7 @@
             echo "Hibás email cím vagy jelszó.";
         }
     }
+    oci_close($connection);
     ?>
 
     <form method="post">
