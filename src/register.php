@@ -20,8 +20,12 @@ include 'process.php';
     if(isset($_POST['register'])){
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $postal_code = $_POST['postal_code'];
+        $city = $_POST['city'];
+        $street = $_POST['street'];
+        $comments = $_POST['comments'];
 
-        $result = register($email, $password);
+        $result = register($email, $password, $postal_code, $city, $street, $comments);
 
         if($result){
             echo "Sikeres regisztráció!";
@@ -35,6 +39,10 @@ include 'process.php';
     <form method="post">
         Email: <input type="email" name="email" required><br>
         Jelszó: <input type="password" name="password" required><br>
+        Irányítószám: <input type="number" name="postal_code"><br>
+        Város: <input type="text" name="city"><br>
+        Utca: <input type="text" name="street"><br>
+        Megjegyzés: <input type="text" name="comments"><br>
         <input type="submit" name="register" value="Regisztráció" class="continueButoon">
     </form>
 
