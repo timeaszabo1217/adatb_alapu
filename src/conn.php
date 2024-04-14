@@ -10,22 +10,4 @@ $connection = oci_connect($username, $password, "(DESCRIPTION=(ADDRESS_LIST = (A
 
 if ($connection) {
     echo "Sikeresen csatlakozva az Oracle adatbázishoz.\n";
-
-
-    $sql = "SELECT admin_email, beosztas FROM admin ORDER BY beosztas";
-
-    $statement = oci_parse($connection, $sql);
-    oci_execute($statement);
-
-    while ($row = oci_fetch_array($statement, OCI_ASSOC+OCI_RETURN_NULLS)) {
-        echo "Admin email: " . $row['ADMIN_EMAIL'] . "\n";
-        echo "Beosztás: " . $row['BEOSZTAS'] . "\n\n";
-    }
-
-    oci_free_statement($statement);
-    oci_close($connection);
-
-} else {
-    $error_message = oci_error();
-    echo "Sikertelen csatlakozás: " . $error_message['message'];
 }
