@@ -73,6 +73,76 @@ nav {
     margin: 15px 50px;
 }
 
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-input {
+    width: 400px;
+    height: 25px;
+    padding: 8px;
+    border: 1px solid var(--green);
+}
+
+.search-button {
+    padding: 0 12px;
+    background-color: var(--green);
+    color: var(--font);
+    border: 1px solid var(--green);
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: var(--green);
+    opacity: 0.8;
+}
+
+.login-menu {
+    position: relative;
+}
+
+.login-menu a {
+    font-size: 20px;
+    margin-left: 200px;
+    text-decoration: none;
+    color: var(--font);
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 200px;
+}
+
+.button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon {
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    margin: 0;
+    height: 25px;
+}
+
+.icon:hover {
+    opacity: 0.8;
+}
+
+#basket_icon {
+    height: 75px;
+}
+
 body {
     background: var(--background);
     color: var(--font);
