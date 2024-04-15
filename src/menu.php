@@ -20,10 +20,10 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
     <form action="kereses.php" method="GET" class="search-form">
         <label>
             <input type="text" name="kereses" class="search-input" placeholder="Keresés...">
-            <button type="submit" class="search-button">
-                <img class="icon" src="assets/imgs/search-removebg-preview.png" alt="Keresés">
-            </button>
         </label>
+        <button type="submit" class="search-button">
+            <img class="icon" src="assets/imgs/search-removebg-preview.png" alt="Keresés">
+        </button>
     </form>
     <div class="login-menu">
         <?php if (!$isLoggedIn) : ?>
