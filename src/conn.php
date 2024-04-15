@@ -8,7 +8,3 @@ $username = '';
 $password = '';
 
 $connection = oci_connect($username, $password, "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = $host)(PORT = $port)))(CONNECT_DATA=(SID=$db_service_name)))");
-
-if ($connection){
-    return "Sikeres";
-}

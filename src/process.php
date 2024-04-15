@@ -31,6 +31,7 @@ function login($email, $password)
     $admin = oci_fetch_assoc($stmt_admin);
 
     if ($admin && password_verify($password, $admin['JELSZO'])) {
+        $_SESSION['user_role'] = 'admin';
         return true;
     }
 
@@ -41,11 +42,13 @@ function login($email, $password)
     $vasarlo = oci_fetch_assoc($stmt_vasarlo);
 
     if ($vasarlo && password_verify($password, $vasarlo['JELSZO'])) {
+        $_SESSION['user_role'] = 'vasarlo';
         return true;
     }
 
     return false;
 }
+
 
     /*$sql = "SELECT * FROM Vasarlo WHERE Vasarlo_email = :email";
     $stmt = oci_parse($connection, $sql);

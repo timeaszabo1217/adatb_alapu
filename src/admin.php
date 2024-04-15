@@ -2,7 +2,6 @@
 $connection = null;
 include 'process.php';
 
-
     if (isset($_POST['konyv_delete'])) {
         $bookId = $_POST['book_id'];
     $stid = oci_parse(database(), "DELETE FROM KONYV WHERE KONYV_ID = {$bookId}");
