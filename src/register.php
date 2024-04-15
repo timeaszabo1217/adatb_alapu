@@ -29,15 +29,16 @@ include 'process.php';
         $street = $_POST['street'];
         $comments = $_POST['comments'];
 
-        if($password === $password_confirmed){
+        if($password === $password_confirmed) {
             $result = register($email, $password, $password_confirmed, $postal_code, $city, $street, $comments);
 
-        if ($result) {
-            echo "<div id='successMessage'>Sikeres regisztráció!</div>";
-            header("refresh:3;url=login.php");
-            exit();
-        } else {
-            echo "<div id='errorMessage'>Hiba történt a regisztráció során.</div>";
+            if ($result) {
+                echo "<div id='successMessage'>Sikeres regisztráció!</div>";
+                header("refresh:3;url=login.php");
+                exit();
+            } else {
+                echo "<div id='errorMessage'>Hiba történt a regisztráció során.</div>";
+            }
         }
     }
     oci_close($connection);
