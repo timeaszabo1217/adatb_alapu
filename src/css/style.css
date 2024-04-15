@@ -73,10 +73,10 @@ nav {
     margin: 15px 50px;
 }
 
-.search-bar {
-    display: flex;
+.menu-container {
     align-items: center;
-    margin-right: 20px;
+    justify-content: space-between;
+    display: flex;
 }
 
 .search-form {
@@ -84,8 +84,6 @@ nav {
 }
 
 .search-input {
-    width: 400px;
-    height: 25px;
     padding: 8px;
     border: 1px solid var(--green);
 }
@@ -152,15 +150,13 @@ nav {
     display: block;
 }
 
-
-.button-container {
+.basket-container {
     position: fixed;
     top: 10px;
     right: 50px;
     display: flex;
     justify-content: flex-end;
 }
-
 
 .button {
     border: none;

@@ -3,7 +3,6 @@ session_start();
 
 $isLoggedIn = isset($_SESSION['user_id']);
 $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
-
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +15,15 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
-<div class="search-bar">
+<div class="menu-container">
     <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
     <form action="kereses.php" method="GET" class="search-form">
-        <input type="text" name="kereses" class="search-input" placeholder="Keresés...">
-        <button type="submit" class="search-button">
-            <img class="icon" src="assets/imgs/search-removebg-preview.png" alt="Keresés">
-        </button>
+        <label>
+            <input type="text" name="kereses" class="search-input" placeholder="Keresés...">
+            <button type="submit" class="search-button">
+                <img class="icon" src="assets/imgs/search-removebg-preview.png" alt="Keresés">
+            </button>
+        </label>
     </form>
     <div class="login-menu">
         <?php if (!$isLoggedIn) : ?>
@@ -40,7 +41,7 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
             </div>
         <?php endif; ?>
     </div>
-    <div class="button-container">
+    <div class="basket-container">
         <a href="kosar.php" class="button">
             <img src="assets/imgs/basket.png" alt="Kosár" class ="icon" id ="basket_icon">
         </a>

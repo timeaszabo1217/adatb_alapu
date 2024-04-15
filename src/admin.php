@@ -20,7 +20,7 @@ include 'process.php';
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
-<div class="search-bar">
+<div class="menu-container">
     <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
     <form action="kereses.php" method="GET" class="search-form">
         <input type="text" name="kereses" class="search-input" placeholder="Keresés...">
