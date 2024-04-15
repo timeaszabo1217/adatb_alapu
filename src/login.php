@@ -24,8 +24,16 @@ include 'process.php';
         $result = login($email, $password);
 
         if($result){
-            echo "Sikeres bejelentkezés!";
-        } else {
+            $isAdmin = checkAdmin($email);
+            if($isAdmin){
+                header("Location: admin.php");
+                exit();
+            } else {
+                echo "Sikeres bejelentkezés!";
+                header("Location: index.php");
+                exit();
+            }
+        }else {
             echo "Hibás email cím vagy jelszó.";
         }
     }
