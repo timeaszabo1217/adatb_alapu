@@ -28,7 +28,7 @@ include 'conn.php';
 
     <img src="assets/imgs/240-2401373_book-free-download-best-magic-spell-book-clipart-removebg-preview.png" alt="opened book graphic">
 
-    <a href="index.php" class="continueButoon">Tovább az oldalra</a>
+    <a href="index.php" class="continueButton">Tovább az oldalra</a>
 </div>
 </body>
 </html>

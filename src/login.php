@@ -13,6 +13,8 @@ include 'process.php';
 </head>
 <body>
 <div class="container">
+    <a href="index.php" style="position: absolute; top: 0; left: 0;">↶ Vissza a főoldalra</a>
+
     <h1>Bejelentkezés</h1>
 
     <?php
@@ -43,10 +45,10 @@ include 'process.php';
     <form method="post">
         Email: <input type="email" name="email" required><br>
         Jelszó: <input type="password" name="password" required><br>
-        <input type="submit" name="login" value="Bejelentkezés" class="continueButoon">
+        <input type="submit" name="login" value="Bejelentkezés" class="continueButton">
     </form>
 
-    <a href="register.php" class="continueButoon">Regisztráció</a>
+    Ha még nincs fiókod, akkor <a href="register.php">regisztrálj</a>.
 </div>
 </body>
 </html>

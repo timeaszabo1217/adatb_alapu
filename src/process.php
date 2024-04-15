@@ -1,8 +1,13 @@
 <?php
 include 'conn.php';
 
-function register($email, $password, $postal_code, $city, $street, $comments) {
+function register($email, $password, $password_confirmed, $postal_code, $city, $street, $comments) {
     global $connection;
+
+    if ($password !== $password_confirmed) {
+        echo "A jelszavak nem egyeznek!";
+        return false;
+    }
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 

@@ -153,6 +153,19 @@ body {
     overflow-y: scroll;
 }
 
+form {
+    font-family: Lora, sans-serif;
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    margin: auto;
+}
+
+label {
+    font-family: Lora, sans-serif;
+    margin-bottom: 8px;
+}
+
 main {
     animation: fadeIn 1s;
 }
@@ -169,6 +182,33 @@ p {
     font-family: Proxima, serif;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="role"],
+input[type="submit"],
+select {
+    font-family: Lora, sans-serif;
+    width: 100%;
+    padding: 5px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background: var(--yellowish);
+    margin-top: 50px;
+    color: var(--font);
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    height: 32px;
+    width: 150px;
+    font-family: Lora, sans-serif;
+    font-size: 16px;
+    border: 0;
+}
+
 .container {
     position: relative;
     top: 50px;
@@ -177,7 +217,7 @@ p {
     text-align: center;
 }
 
-.continueButoon {
+.continueButton {
     display: block;
     width: 150px;
     margin: 20px auto;
