@@ -73,10 +73,10 @@ nav {
     margin: 15px 50px;
 }
 
-.menu-container {
-    align-items: center;
-    justify-content: space-between;
+.search-bar {
     display: flex;
+    align-items: center;
+    margin-right: 20px;
 }
 
 .search-form {
@@ -84,6 +84,8 @@ nav {
 }
 
 .search-input {
+    width: 400px;
+    height: 25px;
     padding: 8px;
     border: 1px solid var(--green);
 }
@@ -150,13 +152,15 @@ nav {
     display: block;
 }
 
-.basket-container {
+
+.button-container {
     position: fixed;
     top: 10px;
     right: 50px;
     display: flex;
     justify-content: flex-end;
 }
+
 
 .button {
     border: none;
@@ -200,19 +204,6 @@ body {
     overflow-y: scroll;
 }
 
-form {
-    font-family: Lora, sans-serif;
-    display: flex;
-    flex-direction: column;
-    max-width: 200px;
-    margin: auto;
-}
-
-label {
-    font-family: Lora, sans-serif;
-    margin-bottom: 8px;
-}
-
 main {
     animation: fadeIn 1s;
 }
@@ -229,33 +220,6 @@ p {
     font-family: Proxima, serif;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="role"],
-input[type="submit"],
-select {
-    font-family: Lora, sans-serif;
-    width: 100%;
-    padding: 5px;
-    height: 30px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    background: var(--yellowish);
-    margin-top: 50px;
-    color: var(--font);
-    cursor: pointer;
-    border-radius: 10px;
-    text-align: center;
-    height: 32px;
-    width: 150px;
-    font-family: Lora, sans-serif;
-    font-size: 16px;
-    border: 0;
-}
-
 .container {
     position: relative;
     top: 50px;
@@ -264,7 +228,7 @@ input[type="submit"] {
     text-align: center;
 }
 
-.continueButton {
+.continueButoon {
     display: block;
     width: 150px;
     margin: 20px auto;

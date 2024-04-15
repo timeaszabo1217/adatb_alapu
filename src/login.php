@@ -10,6 +10,7 @@ include 'process.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/urlap.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
@@ -45,12 +46,12 @@ include 'process.php';
 
 
     <form method="post">
-        Email: <input type="email" name="email" required><br>
-        Jelszó: <input type="password" name="password" required><br>
+        <p>Email: <input type="email" name="email" required><br></p>
+        <p>Jelszó: <input type="password" name="password" required><br></p>
         <input type="submit" name="login" value="Bejelentkezés" class="continueButton">
     </form>
 
-    Ha még nincs fiókod, akkor <a href="register.php">regisztrálj</a>.
+    <p>Ha még nincs fiókod, akkor <a href="register.php">regisztrálj</a>.</p>
 </div>
 </body>
 </html>

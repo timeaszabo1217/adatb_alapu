@@ -9,6 +9,7 @@ include 'process.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/urlap.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
@@ -45,17 +46,17 @@ include 'process.php';
     ?>
 
     <form method="post">
-        Email: <input type="email" name="email" required><br>
-        Jelszó: <input type="password" name="password" required><br>
-        Jelszó még egyszer: <input type="password" name="password_confirmed" required><br>
-        Irányítószám: <input type="number" name="postal_code"><br>
-        Város: <input type="text" name="city"><br>
-        Utca: <input type="text" name="street"><br>
-        Megjegyzés: <input type="text" name="comments"><br>
+        <p>Email: <input type="email" name="email" required><br></p>
+        <p>Jelszó: <input type="password" name="password" required><br></p>
+        <p>Jelszó még egyszer: <input type="password" name="password_confirmed" required><br></p>
+        <p>Irányítószám: <input type="number" name="postal_code"><br></p>
+        <p>Város: <input type="text" name="city"><br></p>
+        <p>Utca: <input type="text" name="street"><br></p>
+        <p>Megjegyzés: <input type="text" name="comments"><br></p>
         <input type="submit" name="register" value="Regisztráció" class="continueButton">
     </form>
 
-    Ha már van fiókod, akkor <a href="login.php">jelentkezz be</a>.
+    <p>Ha már van fiókod, akkor <a href="login.php">jelentkezz be</a>.</p>
 </div>
 </body>
 </html>

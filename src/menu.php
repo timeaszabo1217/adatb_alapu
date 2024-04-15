@@ -3,6 +3,7 @@ session_start();
 
 $isLoggedIn = isset($_SESSION['user_id']);
 $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
-<div class="menu-container">
+<div class="search-bar">
     <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
     <form action="kereses.php" method="GET" class="search-form">
         <label>
@@ -41,7 +42,7 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
             </div>
         <?php endif; ?>
     </div>
-    <div class="basket-container">
+    <div class="button-container">
         <a href="kosar.php" class="button">
             <img src="assets/imgs/basket.png" alt="Kosár" class ="icon" id ="basket_icon">
         </a>
