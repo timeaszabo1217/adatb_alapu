@@ -14,6 +14,8 @@ include 'process.php';
 </head>
 <body>
 <div class="container">
+    <a href="index.php" style="position: absolute; top: 0; left: 0;">↶ Vissza a főoldalra</a>
+
     <h1>Regisztráció</h1>
 
     <?php
@@ -21,12 +23,14 @@ include 'process.php';
     if(isset($_POST['register'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $password_confirmed = $_POST['password_confirmed'];
         $postal_code = $_POST['postal_code'];
         $city = $_POST['city'];
         $street = $_POST['street'];
         $comments = $_POST['comments'];
 
-        $result = register($email, $password, $postal_code, $city, $street, $comments);
+        if($password === $password_confirmed){
+            $result = register($email, $password, $password_confirmed, $postal_code, $city, $street, $comments);
 
         if ($result) {
             echo "<div id='successMessage'>Sikeres regisztráció!</div>";
@@ -42,14 +46,15 @@ include 'process.php';
     <form method="post">
         Email: <input type="email" name="email" required><br>
         Jelszó: <input type="password" name="password" required><br>
+        Jelszó még egyszer: <input type="password" name="password_confirmed" required><br>
         Irányítószám: <input type="number" name="postal_code"><br>
         Város: <input type="text" name="city"><br>
         Utca: <input type="text" name="street"><br>
         Megjegyzés: <input type="text" name="comments"><br>
-        <input type="submit" name="register" value="Regisztráció" class="continueButoon">
+        <input type="submit" name="register" value="Regisztráció" class="continueButton">
     </form>
 
-    <a href="login.php" class="continueButoon">Bejelentkezés</a>
+    Ha már van fiókod, akkor <a href="login.php">jelentkezz be</a>.
 </div>
 </body>
 </html>
