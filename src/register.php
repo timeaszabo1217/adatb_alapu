@@ -9,7 +9,8 @@ include 'process.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Regisztráció</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
 <div class="container">
@@ -19,7 +20,7 @@ include 'process.php';
 
     <?php
 
-    if(isset($_POST['register'])){
+    if(isset($_POST['register'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $password_confirmed = $_POST['password_confirmed'];
@@ -31,13 +32,12 @@ include 'process.php';
         if($password === $password_confirmed){
             $result = register($email, $password, $password_confirmed, $postal_code, $city, $street, $comments);
 
-            if($result){
-                echo "Sikeres regisztráció!";
-            } else {
-                echo "Hiba történt a regisztráció során.";
-            }
+        if ($result) {
+            echo "<div id='successMessage'>Sikeres regisztráció!</div>";
+            header("refresh:3;url=login.php");
+            exit();
         } else {
-            echo "A jelszavak nem egyeznek!";
+            echo "<div id='errorMessage'>Hiba történt a regisztráció során.</div>";
         }
     }
     oci_close($connection);

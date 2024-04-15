@@ -108,17 +108,59 @@ nav {
 }
 
 .login-menu a {
+    color: var(--font);
+}
+
+.dropbtn {
     font-size: 20px;
     margin-left: 200px;
     text-decoration: none;
     color: var(--font);
+    font-family: Tenor, sans-serif;
+    border: none;
+    cursor: pointer;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    z-index: 1;
+    left: 50%;
+    width: 80%;
+}
+
+.dropdown-content a {
+    padding: 5px 25px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--font);
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 .button-container {
+    position: fixed;
+    top: 10px;
+    right: 50px;
     display: flex;
     justify-content: flex-end;
-    margin-left: 200px;
 }
+
 
 .button {
     border: none;
@@ -141,6 +183,15 @@ nav {
 
 #basket_icon {
     height: 75px;
+}
+
+#successMessage, #errorMessage {
+    font-family: Proxima, sans-serif;
+    margin-bottom: 20px;
+}
+
+#errorMessage {
+    color: indianred;
 }
 
 body {
