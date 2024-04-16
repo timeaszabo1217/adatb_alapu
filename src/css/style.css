@@ -100,7 +100,7 @@ nav {
 }
 
 .nav-link:hover {
-    color: var(--yellowish);
+    opacity: 0.8;
 }
 
 .menu {
@@ -179,6 +179,10 @@ nav {
     font-family: Tenor, sans-serif;
     border: none;
     cursor: pointer;
+}
+
+.dropbtn:hover {
+    opacity: 0.8;
 }
 
 .dropdown {
