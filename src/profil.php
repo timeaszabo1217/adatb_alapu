@@ -15,8 +15,13 @@ $user = getUserData($_SESSION['username']);
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['update'])) {
-        // Update user data
-        $result = updateUserData($_SESSION['username'], $_POST['postal_code'], $_POST['city'], $_POST['street'], $_POST['comments']);
+
+        if ($_SESSION['user_type'] === 'admin') {
+            $result = updateAdminUserData($_SESSION['username'], $_POST['starting'], $_POST['position']);
+        } else {
+            $result = updateUserData($_SESSION['username'], $_POST['postal_code'], $_POST['city'], $_POST['street'], $_POST['comments']);
+        }
+
         if ($result) {
             echo "<div id='successMessage'>Adatok frissítve!</div>";
         } else {
@@ -52,30 +57,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h1>Profil</h1>
 
-    <!-- Display user data -->
-    <p>Email: <?php echo $user['email']; ?></p>
-    <p>Irányítószám: <?php echo $user['postal_code']; ?></p>
-    <p>Város: <?php echo $user['city']; ?></p>
-    <p>Utca: <?php echo $user['street']; ?></p>
-    <p>Megjegyzés: <?php echo $user['comments']; ?></p>
+    <?php if ($_SESSION['user_type'] === 'admin') { ?>
+    <p>Email: <?php echo $_SESSION['username']; ?></p>
+    <p>Kezdés időpontja: <?php echo $user['KEZDES_IDOPONTJA']; ?></p>
+    <p>Beosztás: <?php echo $user['BEOSZTAS']; ?></p>
 
-    <!-- Form for updating user data -->
-    <form method="post" action="">
-        <input type="hidden" name="email" value="<?php echo $user['email']; ?>">
-        <label for="postal_code">Irányítószám:</label><br>
-        <input type="number" id="postal_code" name="postal_code" value="<?php echo $user['postal_code']; ?>"><br>
-        <label for="city">Város:</label><br>
-        <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>"><br>
-        <label for="street">Utca:</label><br>
-        <input type="text" id="street" name="street" value="<?php echo $user['street']; ?>"><br>
-        <label for="comments">Megjegyzés:</label><br>
-        <input type="text" id="comments" name="comments" value="<?php echo $user['comments']; ?>"><br>
-        <input type="submit" name="update" value="Adatok frissítése">
-    </form>
+        <h1>Profil módosítása</h1>
+
+        <form method="post" action="">
+            <input type="hidden" name="email" value="<?php echo $_SESSION['username']; ?>">
+
+            <label for="starting">Kezdés időpontja:</label><br>
+            <input type="text" id="starting" name="starting" value="<?php echo $user['KEZDES_IDOPONTJA']; ?>"><br>
+            <label for="position">Beosztás:</label><br>
+            <input type="text" id="position" name="position" value="<?php echo $user['BEOSZTAS']; ?>"><br>
+
+            <input type="submit" name="update" value="Adatok módosítása">
+        </form>
+    <?php }?>
+
+    <?php if ($_SESSION['user_type'] === 'vasarlo') { ?>
+    <p>Email: <?php echo $_SESSION['username']; ?></p>
+    <p>Irányítószám: <?php echo $user['IRANYITOSZAM']; ?></p>
+    <p>Város: <?php echo $user['VAROS']; ?></p>
+    <p>Utca: <?php echo $user['UTCA']; ?></p>
+    <p>Megjegyzés: <?php echo $user['MEGJEGYZES']; ?></p>
+
+        <h1>Profil módosítása</h1>
+
+        <form method="post" action="">
+            <input type="hidden" name="email" value="<?php echo $_SESSION['username']; ?>">
+            <label for="postal_code">Irányítószám:</label><br>
+            <input type="number" id="postal_code" name="postal_code" value="<?php echo $user['IRANYITOSZAM']; ?>"><br>
+            <label for="city">Város:</label><br>
+            <input type="text" id="city" name="city" value="<?php echo $user['VAROS']; ?>"><br>
+            <label for="street">Utca:</label><br>
+            <input type="text" id="street" name="street" value="<?php echo $user['UTCA']; ?>"><br>
+            <label for="comments">Megjegyzés:</label><br>
+            <input type="text" id="comments" name="comments" value="<?php echo $user['MEGJEGYZES']; ?>"><br>
+
+
+            <input type="submit" name="update" value="Adatok módosítása">
+        </form>
+    <?php }?>
+
+
+
+    <h1>Profil törlése</h1>
 
     <!-- Form for deleting user -->
     <form method="post" action="">
-        <input type="hidden" name="email" value="<?php echo $user['email']; ?>">
+        <input type="hidden" name="email" value="<?php echo $_SESSION['username']; ?>">
         <input type="submit" name="delete" value="Felhasználó törlése">
     </form>
 

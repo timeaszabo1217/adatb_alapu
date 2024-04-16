@@ -37,9 +37,10 @@ function getUserData($email) {
 
     // Fetch user data based on whether they are an admin or not
     if ($_SESSION['user_type'] === 'admin') {
-        $sql = "SELECT Admin_email as email FROM Admin WHERE Admin_email = :email";
+        $sql = "SELECT * FROM Admin WHERE Admin_email = :email";
+
     } else {
-        $sql = "SELECT Vasarlo_email as email, Iranyitoszam as postal_code, Varos as city, Utca as street, Megjegyzes as comments FROM Vasarlo WHERE Vasarlo_email = :email";
+        $sql = "SELECT * FROM Vasarlo WHERE Vasarlo_email = :email";
     }
 
     $stmt = oci_parse($connection, $sql);
@@ -48,21 +49,31 @@ function getUserData($email) {
     return oci_fetch_assoc($stmt);
 }
 
-function updateUserData($email, $postal_code, $city, $street, $comments) {
+function updateAdminUserData($email, $kezdes, $beosztas) {
     global $connection;
 
-    if ($_SESSION['user_type'] === 'admin') {
-        $sql = "UPDATE Admin SET Iranyitoszam = :postal_code, Varos = :city, Utca = :street, Megjegyzes = :comments WHERE Admin_email = :email";
-    } else {
-        $sql = "UPDATE Vasarlo SET Iranyitoszam = :postal_code, Varos = :city, Utca = :street, Megjegyzes = :comments WHERE Vasarlo_email = :email";
-    }
+    $sql = "UPDATE Admin SET Kezdes_idopontja = :kezdes, Beosztas = :beosztas WHERE Admin_email = :email";
 
     $stmt = oci_parse($connection, $sql);
     oci_bind_by_name($stmt, ':email', $email);
-    oci_bind_by_name($stmt, ':postal_code', $postal_code);
-    oci_bind_by_name($stmt, ':city', $city);
-    oci_bind_by_name($stmt, ':street', $street);
-    oci_bind_by_name($stmt, ':comments', $comments);
+    oci_bind_by_name($stmt, ':kezdes', $kezdes);
+    oci_bind_by_name($stmt, ':beosztas', $beosztas);
+
+    return oci_execute($stmt);
+}
+
+function updateUserData($email, $iranyitoszam, $varos, $utca, $megjegyzes) {
+    global $connection;
+
+    $sql = "UPDATE Vasarlo SET Iranyitoszam = :iranyitoszam, Varos = :varos, Utca = :utca, Megjegyzes = :megjegyzes WHERE Vasarlo_email = :email";
+
+    $stmt = oci_parse($connection, $sql);
+    oci_bind_by_name($stmt, ':email', $email);
+    oci_bind_by_name($stmt, ':iranyitoszam', $iranyitoszam);
+    oci_bind_by_name($stmt, ':varos', $varos);
+    oci_bind_by_name($stmt, ':utca', $utca);
+    oci_bind_by_name($stmt, ':megjegyzes', $megjegyzes);
+
     return oci_execute($stmt);
 }
 
