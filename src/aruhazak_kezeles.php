@@ -45,7 +45,6 @@ if (isset($_POST["aruhaz_delete"])) {
                     <th>Utca</th>
                     <th>Házszám</th>
                     <th>Dolgozók száma</th>
-                    <th>Műveletek</th>
                 </tr>
                 </thead>
                 <tbody>

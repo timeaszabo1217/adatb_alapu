@@ -78,7 +78,6 @@ if (isset($_POST["konyv_add"])) {
                         <th>Kötet</th>
                         <th>Ár</th>
                         <th>Eladott példányok száma</th>
-                        <th>Törlés</th>
                     </tr>
                     </thead>
                     <tbody>
