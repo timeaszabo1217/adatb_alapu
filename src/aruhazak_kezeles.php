@@ -9,7 +9,7 @@ if (isset($_POST["aruhaz_delete"])) {
     $stid = oci_parse(database(), $query);
     oci_bind_by_name($stid, ':aruhaz_id', $aruhaz_id);
     oci_execute($stid);
-    header("Location: admin.php");
+    header("Location: aruhazak_kezeles.php");
     exit();
 }
 ?>
@@ -35,11 +35,11 @@ if (isset($_POST["aruhaz_delete"])) {
 <main>
     <div class="book-form-container">
         <h2>Áruház törlése</h2>
+        <form method="POST" action="aruhazak_kezeles.php" accept-charset="utf-8">
         <section>
             <table>
                 <thead>
                 <tr>
-                    <th>Aruház ID</th>
                     <th>Irányítószám</th>
                     <th>Város</th>
                     <th>Utca</th>
@@ -54,7 +54,6 @@ if (isset($_POST["aruhaz_delete"])) {
                 oci_execute($stid);
                 while ($row = oci_fetch_assoc($stid)) {
                     echo "<tr>";
-                    echo "<td>" . $row['ARUHAZ_ID'] . "</td>";
                     echo "<td>" . $row['IRANYITOSZAM'] . "</td>";
                     echo "<td>" . $row['VAROS'] . "</td>";
                     echo "<td>" . $row['UTCA'] . "</td>";
@@ -67,6 +66,7 @@ if (isset($_POST["aruhaz_delete"])) {
                 </tbody>
             </table>
         </section>
+        </form>
     </div>
 </main>
 </body>
