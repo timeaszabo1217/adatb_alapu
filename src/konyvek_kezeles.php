@@ -95,6 +95,49 @@ if (isset($_POST["konyv_modify"])) {
         exit();
     }
 }
+
+if (isset($_POST["mufaj_assign"])) {
+    $konyv_id = $_POST["konyv_id"];
+    $selected_genres = $_POST["mufaj_megnevezes"];
+
+    $delete_query = "DELETE FROM KonyvMufaj WHERE Konyv_id = :konyv_id";
+    $delete_stid = oci_parse(database(), $delete_query);
+    oci_bind_by_name($delete_stid, ':konyv_id', $konyv_id);
+    oci_execute($delete_stid);
+
+    foreach ($selected_genres as $genre) {
+        $insert_query = "INSERT INTO KonyvMufaj (Konyv_id, Mufaj_megnevezes) VALUES (:konyv_id, :mufaj_megnevezes)";
+        $insert_stid = oci_parse(database(), $insert_query);
+        oci_bind_by_name($insert_stid, ':konyv_id', $konyv_id);
+        oci_bind_by_name($insert_stid, ':mufaj_megnevezes', $genre);
+        oci_execute($insert_stid);
+    }
+
+    header("Location: konyvek_kezeles.php");
+    exit();
+}
+
+if (isset($_POST["mufaj_add"])) {
+    $new_genre = $_POST["mufaj_add"];
+
+    $check_query = "SELECT COUNT(*) FROM Mufaj WHERE Mufaj_megnevezes = :mufaj_add";
+    $check_stid = oci_parse(database(), $check_query);
+    oci_bind_by_name($check_stid, ':mufaj_add', $new_genre);
+    oci_execute($check_stid);
+    $count = oci_fetch_row($check_stid)[0];
+
+    if ($count == 0) {
+        $insert_query = "INSERT INTO Mufaj (Mufaj_megnevezes) VALUES (:mufaj_add)";
+        $insert_stid = oci_parse(database(), $insert_query);
+        oci_bind_by_name($insert_stid, ':mufaj_add', $new_genre);
+
+        if (oci_execute($insert_stid)) {
+            echo "Az új műfaj sikeresen hozzá lett adva.";
+        } else {
+            echo "Hiba történt az új műfaj hozzáadása során.";
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -248,6 +291,46 @@ if (isset($_POST["konyv_modify"])) {
             </div>
             <input class="continueButton" type="submit" name="konyv_modify" value="Módosítás" />
         </form>
+    </div>
+    <div class="book-form-container">
+        <h2>Mufaj hozzárendelés könyvhöz</h2>
+        <div class="select-container">
+            <form method="POST" action="konyvek_kezeles.php">
+                <label for="konyv_id">Könyv:</label>
+                <select name="konyv_id" id="konyv_id">
+                    <?php
+                    $stid = oci_parse(database(), 'SELECT KONYV_ID, NEV FROM Konyv');
+                    oci_execute($stid);
+                    while (($row = oci_fetch_assoc($stid)) != false) {
+                        echo '<option value="' . $row['KONYV_ID'] . '">' . $row['NEV'] . '</option>';
+                    }
+                    ?>
+                </select>
+                <label for="mufaj">Műfaj:</label>
+                <select name="mufaj_megnevezes" id="mufaj">
+                    <?php
+                    $stid = oci_parse(database(), 'SELECT MUFAJ_MEGNEVEZES FROM Mufaj');
+                    oci_execute($stid);
+                    while (($row = oci_fetch_assoc($stid)) != false) {
+                        echo '<option value="' . $row['MUFAJ_MEGNEVEZES'] .'">' . $row['MUFAJ_MEGNEVEZES'] . '</option>';
+                    }
+                    ?>
+                </select>
+                <input class="continueButton" type="submit" name="mufaj_assign" value="Hozzárendelés">
+            </form>
+        </div>
+    </div>
+    <div class="book-form-container">
+        <h2>Mufaj hozzáadása</h2>
+        <div class="select-container">
+            <form method="POST" action="konyvek_kezeles.php">
+                <label for="mufaj">Műfaj neve:</label>
+                <label>
+                    <input type="text" name="mufaj_add">
+                </label>
+                <input class="continueButton" type="submit" name="mufaj_add" value="Hozzáadás">
+            </form>
+        </div>
     </div>
 </main>
 </body>
