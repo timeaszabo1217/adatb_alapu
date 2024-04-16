@@ -8,10 +8,10 @@ form {
 
 label {
     font-family: Lora, sans-serif;
-    margin-bottom: 8px;
 }
 
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="password"],
 input[type="role"],
@@ -26,7 +26,7 @@ select {
 
 input[type="submit"] {
     background: var(--yellowish);
-    margin-top: 50px;
+    margin-top: 30px;
     color: var(--font);
     cursor: pointer;
     border-radius: 10px;

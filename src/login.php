@@ -46,8 +46,16 @@ include 'process.php';
 
 
     <form method="post">
-        <p>Email: <input type="email" name="email" required><br></p>
-        <p>Jelszó: <input type="password" name="password" required><br></p>
+        <p>E-mail cím
+            <label>
+                <input type="email" name="email" required>
+            </label>
+        </p>
+        <p>Jelszó
+            <label>
+                <input type="password" name="password" required>
+            </label>
+        </p>
         <input type="submit" name="login" value="Bejelentkezés" class="continueButton">
     </form>
 

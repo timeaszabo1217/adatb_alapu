@@ -46,13 +46,41 @@ include 'process.php';
     ?>
 
     <form method="post">
-        <p>Email: <input type="email" name="email" required><br></p>
-        <p>Jelszó: <input type="password" name="password" required><br></p>
-        <p>Jelszó még egyszer: <input type="password" name="password_confirmed" required><br></p>
-        <p>Irányítószám: <input type="number" name="postal_code"><br></p>
-        <p>Város: <input type="text" name="city"><br></p>
-        <p>Utca: <input type="text" name="street"><br></p>
-        <p>Megjegyzés: <input type="text" name="comments"><br></p>
+        <p>E-mail cím*
+            <label>
+                <input type="email" name="email" required>
+            </label>
+        </p>
+        <p>Jelszó*
+            <label>
+                <input type="password" name="password" required>
+            </label>
+        </p>
+        <p>Jelszó még egyszer*
+            <label>
+                <input type="password" name="password_confirmed" required>
+            </label>
+        </p>
+        <p>Irányítószám
+            <label>
+                <input type="number" name="postal_code">
+            </label>
+        </p>
+        <p>Város
+            <label>
+                <input type="text" name="city">
+            </label>
+        </p>
+        <p>Lakcím
+            <label>
+                <input type="text" name="street">
+            </label>
+        </p>
+        <p>Megjegyzés a címmel kapcsolatban
+            <label>
+                <input type="text" name="comments">
+            </label>
+        </p>
         <input type="submit" name="register" value="Regisztráció" class="continueButton">
     </form>
 
