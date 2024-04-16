@@ -1,11 +1,11 @@
 --
--- Adatbázis: `Konyvesbolt`
+-- Adatbï¿½zis: `Konyvesbolt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Táblák törlése, ha már létre volt hozva
+-- Tï¿½blï¿½k tï¿½rlï¿½se, ha mï¿½r lï¿½tre volt hozva
 --
 
 BEGIN
@@ -121,7 +121,7 @@ END;
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `Vasarlo`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `Vasarlo`
 --
 
 CREATE TABLE Vasarlo (
@@ -134,32 +134,32 @@ CREATE TABLE Vasarlo (
 );
 
 --
--- A tábla adatainak kiíratása `Vasarlo`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `Vasarlo`
 --
 
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('john@example.com', '$2y$10$wzyf2hqk/W2Xr7tuMEIZbuScSGCsPmNQwOHw7adNtpZloyw0JK3dG', 6700, 'Szeged', 'Jókai Mór utca', 'Megjegyzes1');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('jane@example.com', '$2y$10$kpvVKlTrcj0fM/Wm9MOGgeeIwwbinBIZfMXu2P/BTIJj3cse9FOmq', 1000, 'Budapest', 'Arany János utca', 'Megjegyzes2');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('alice@example.com', '$2y$10$CThkoLoAe11/apWr3DUkAuAN8VrjWIstdG4yUd..B2t/tJLpTKrRK', 5430, 'Tiszaföldvár', 'Bánat utca', 'Megjegyzes3');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('bob@example.com', '$2y$10$rqi4WmnehwgHcc/z.H9lreSuqpDachF8VSEXtWt506pHlRdA/c9x2', 6223, 'Soltszentimre', 'Szabó utca', 'Megjegyzes1');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('emma@example.com', '$2y$10$6y/WRVYN65eCHl3sA1KFl.UvQRg.HDulzgvSL5hcLbZdj/g0SrL4.', 3732, 'Kurityán', 'Bajai utca', 'Megjegyzes2');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('john@example.com', '$2y$10$wzyf2hqk/W2Xr7tuMEIZbuScSGCsPmNQwOHw7adNtpZloyw0JK3dG', 6700, 'Szeged', 'Jï¿½kai Mï¿½r utca', 'Megjegyzes1');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('jane@example.com', '$2y$10$kpvVKlTrcj0fM/Wm9MOGgeeIwwbinBIZfMXu2P/BTIJj3cse9FOmq', 1000, 'Budapest', 'Arany Jï¿½nos utca', 'Megjegyzes2');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('alice@example.com', '$2y$10$CThkoLoAe11/apWr3DUkAuAN8VrjWIstdG4yUd..B2t/tJLpTKrRK', 5430, 'Tiszafï¿½ldvï¿½r', 'Bï¿½nat utca', 'Megjegyzes3');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('bob@example.com', '$2y$10$rqi4WmnehwgHcc/z.H9lreSuqpDachF8VSEXtWt506pHlRdA/c9x2', 6223, 'Soltszentimre', 'Szabï¿½ utca', 'Megjegyzes1');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('emma@example.com', '$2y$10$6y/WRVYN65eCHl3sA1KFl.UvQRg.HDulzgvSL5hcLbZdj/g0SrL4.', 3732, 'Kurityï¿½n', 'Bajai utca', 'Megjegyzes2');
 INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('hannah@example.com', '$2y$10$ojTg/m.OfJTqP/ur1RSPnOrLUCZTWOnawydGQWTpU15EaM9t5X1FS', 7056, 'Szedres', 'Szolnoki utca', 'Megjegyzes3');
 INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('grace@example.com', '$2y$10$Z1ro7fOkQPvOkPPvgHcuduksqO5bfVX1b7ORLw4PGl2POqdq08J4.', 4445, 'Nagycserkesz', 'Nagy Utca', 'Megjegyzes3');
 INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('alexander@example.com', '$2y$10$UshuxlLpPIVdR014BIb//ejhHtxa8V0Sd3yo68NYtCbL8RWgxEK5O', 3000, 'Hatvan', 'Falvai utca', 'Megjegyzes3');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('logan@example.com', '$2y$10$npfTDmFlls3sVW/QIU2/WuQzkuBg8yQCE1MrOjt3TMWUV3FqFaBUG', 3100, 'Salgótarján', 'Mészáros utca', 'Megjegyzes3');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('isabella@example.com', '$2y$10$yyfR.zYSaf2bSq7se6EFduHHBXEkYuOzu7V8fkVyClG/TX/nFklQa', 3200, 'Gyöngyös', 'Alma utca', 'Megjegyzes3');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('logan@example.com', '$2y$10$npfTDmFlls3sVW/QIU2/WuQzkuBg8yQCE1MrOjt3TMWUV3FqFaBUG', 3100, 'Salgï¿½tarjï¿½n', 'Mï¿½szï¿½ros utca', 'Megjegyzes3');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('isabella@example.com', '$2y$10$yyfR.zYSaf2bSq7se6EFduHHBXEkYuOzu7V8fkVyClG/TX/nFklQa', 3200, 'Gyï¿½ngyï¿½s', 'Alma utca', 'Megjegyzes3');
 INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('james@example.com', '$2y$10$U0UaVNyaPioqBNTneG1so.ssSQlseAZ.J6n7wjcWvovvUM65K.vh2', 3300, 'Eger', 'Csiga utca', 'Megjegyzes3');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('noah@example.com', '$2y$10$f8qU8k8Wwv0XUJdwrDkEQuRPDhUU/yHGeK8OYlOMHbX9pvnq/q.xq', 3400, 'Mezõkövesd', 'Pentelei utca', 'Megjegyzes3');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('noah@example.com', '$2y$10$f8qU8k8Wwv0XUJdwrDkEQuRPDhUU/yHGeK8OYlOMHbX9pvnq/q.xq', 3400, 'Mezï¿½kï¿½vesd', 'Pentelei utca', 'Megjegyzes3');
 INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('ava@example.com', '$2y$10$WgIA01n7LYQOeSNUaHM70.G1kz9f3KoSTnf135qW5ENU4BgYnC72y', 3500, 'Miskolc', 'Aradi utca', 'Megjegyzes3');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('oliver@example.com', '$2y$10$UazfiOgQykXLajS4lyoZl.kuIenH8AzdLKA/l21bL3MRCZgQTpPRy', 5085, 'Rákóczifalva', 'Téglás utca', 'Megjegyzes3');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('oliver@example.com', '$2y$10$UazfiOgQykXLajS4lyoZl.kuIenH8AzdLKA/l21bL3MRCZgQTpPRy', 5085, 'Rï¿½kï¿½czifalva', 'Tï¿½glï¿½s utca', 'Megjegyzes3');
 INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('sophia@example.com', '$2y$10$A1tKG7Ms3Rxr92E.zFbH2.rLO.qisp4g.vqAzXqOki0KzAFMxKfxC', 5000, 'Szolnok', 'Balatoni utca', 'Megjegyzes3');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('olivia@example.com', '$2y$10$4ygSfOjJkTYLSbewIQD4EexYa/Aj7uPJlcFuYDd176meL5weUGGNm', 1020, 'Budapest, 2. kerület', 'András utca', 'Megjegyzes3');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('william@example.com', '$2y$10$arhvmmksQdS.YSRoxXEPk..4VNuKvCVXngHXm.hAqkN6qSFSuIP0i', 1030, 'Budapest, Óbuda-Békásmegyer', 'Létezõ utca', 'Megjegyzes3');
-INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('amelia@example.com', '$2y$10$o0tz16MyoQ523Txw5Xa6BO5HTSNGztAmRyP5iZCfJKTZascSJ1s.m', 1040, 'Budapest, Újpest', 'Tenger utca', 'Megjegyzes3');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('olivia@example.com', '$2y$10$4ygSfOjJkTYLSbewIQD4EexYa/Aj7uPJlcFuYDd176meL5weUGGNm', 1020, 'Budapest, 2. kerï¿½let', 'Andrï¿½s utca', 'Megjegyzes3');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('william@example.com', '$2y$10$arhvmmksQdS.YSRoxXEPk..4VNuKvCVXngHXm.hAqkN6qSFSuIP0i', 1030, 'Budapest, ï¿½buda-Bï¿½kï¿½smegyer', 'Lï¿½tezï¿½ utca', 'Megjegyzes3');
+INSERT INTO Vasarlo (vasarlo_email, jelszo, iranyitoszam, varos, utca, megjegyzes) VALUES ('amelia@example.com', '$2y$10$o0tz16MyoQ523Txw5Xa6BO5HTSNGztAmRyP5iZCfJKTZascSJ1s.m', 1040, 'Budapest, ï¿½jpest', 'Tenger utca', 'Megjegyzes3');
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `Admin`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `Admin`
 --
 
 CREATE TABLE Admin (
@@ -170,19 +170,19 @@ CREATE TABLE Admin (
 );
 
 --
--- A tábla adatainak kiíratása `Admin`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `Admin`
 --
 
 INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('acsiga@streeler.com', '$2y$10$wzyf2hqk/W2Xr7tuMEIZbuScSGCsPmNQwOHw7adNtpZloyw0JK3dG',  TO_DATE('2024-01-01', 'YYYY-MM-DD'), 'Rendszergazda');
-INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('fent@streeler.com', '$2y$10$kpvVKlTrcj0fM/Wm9MOGgeeIwwbinBIZfMXu2P/BTIJj3cse9FOmq', TO_DATE('2024-02-01', 'YYYY-MM-DD'), 'Eladó');
-INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('van@streeler.com', '$2y$10$CThkoLoAe11/apWr3DUkAuAN8VrjWIstdG4yUd..B2t/tJLpTKrRK',  TO_DATE('2024-03-01', 'YYYY-MM-DD'), 'Feladó');
-INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('ahatalmas@streeler.com', '$2y$10$rqi4WmnehwgHcc/z.H9lreSuqpDachF8VSEXtWt506pHlRdA/c9x2',  TO_DATE('2024-04-01', 'YYYY-MM-DD'), 'Eladó');
-INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('fan@streeler.com', '$2y$10$6y/WRVYN65eCHl3sA1KFl.UvQRg.HDulzgvSL5hcLbZdj/g0SrL4.',  TO_DATE('2024-05-01', 'YYYY-MM-DD'), 'Árufeltöltõ');
+INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('fent@streeler.com', '$2y$10$kpvVKlTrcj0fM/Wm9MOGgeeIwwbinBIZfMXu2P/BTIJj3cse9FOmq', TO_DATE('2024-02-01', 'YYYY-MM-DD'), 'Eladï¿½');
+INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('van@streeler.com', '$2y$10$CThkoLoAe11/apWr3DUkAuAN8VrjWIstdG4yUd..B2t/tJLpTKrRK',  TO_DATE('2024-03-01', 'YYYY-MM-DD'), 'Feladï¿½');
+INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('ahatalmas@streeler.com', '$2y$10$rqi4WmnehwgHcc/z.H9lreSuqpDachF8VSEXtWt506pHlRdA/c9x2',  TO_DATE('2024-04-01', 'YYYY-MM-DD'), 'Eladï¿½');
+INSERT INTO Admin (admin_email, jelszo, kezdes_idopontja, beosztas) VALUES ('fan@streeler.com', '$2y$10$6y/WRVYN65eCHl3sA1KFl.UvQRg.HDulzgvSL5hcLbZdj/g0SrL4.',  TO_DATE('2024-05-01', 'YYYY-MM-DD'), 'ï¿½rufeltï¿½ltï¿½');
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `Konyv`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `Konyv`
 --
 
 CREATE TABLE Konyv (
@@ -198,75 +198,75 @@ CREATE TABLE Konyv (
 );
 
 --
--- A tábla adatainak kiíratása `Konyv`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `Konyv`
 --
 
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter és a Bölcsek Köve', 1997, 'Kosmosz Kiadó', 223, 'A5', 1, 3999, 12000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter és a Titkok Kamrája', 1998, 'Kosmosz Kiadó', 251, 'A5', 1, 3999, 8500000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter és az azkabani fogoly', 1999, 'Kosmosz Kiadó', 317, 'A5', 1, 3999, 10000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter és a Tûz Serlege', 2000, 'Kosmosz Kiadó', 636, 'A5', 1, 3999, 11000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter és a Fõnix Rendje', 2003, 'Kosmosz Kiadó', 766, 'A5', 1, 3999, 10500000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter és a Félvér Herceg', 2005, 'Kosmosz Kiadó', 607, 'A5', 1, 3999, 9800000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter és a Halál ereklyéi', 2007, 'Kosmosz Kiadó', 607, 'A5', 1, 3999, 11500000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A lány a vonaton', 2015, 'Maxim Kiadó', 464, 'A5', 1, 4999, 2000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Az éhezõk viadala', 2008, 'Akropolisz Kiadó', 374, 'A5', 1, 3999, 23000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A kiválasztott', 2009, 'Akropolisz Kiadó', 391, 'A5', 2, 3999, 20000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A lángoló világ', 2010, 'Akropolisz Kiadó', 390, 'A5', 3, 3999, 18000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A tereptúra', 2009, 'L''Harmattan Kiadó', 375, 'A5', 1, 3999, 6500000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A megpróbáltatások', 2010, 'L''Harmattan Kiadó', 361, 'A5', 2, 3999, 6000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A Da Vinci-kód', 2003, 'Kossuth Kiadó', 689, 'A5', 1, 4999, 80000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Angyalok és démonok', 2000, 'Kossuth Kiadó', 736, 'A5', 1, 4999, 39000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Az Alkimista', 1988, 'Alexandra Kiadó', 163, 'A5', 1, 3999, 65000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Ne bántsátok a feketerigót!', 1960, 'Magvetõ Kiadó', 281, 'A5', 1, 3999, 40000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('1984', 1949, 'Corvina Kiadó', 328, 'A5', 1, 3999, 25000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Büszkeség és balítélet', 1813, 'Könyvmolyképzõ Kiadó', 432, 'A5', 1, 3999, 20000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A nagy Gatsby', 1925, 'Könyvmolyképzõ Kiadó', 180, 'A5', 1, 3999, 25000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Moby-Dick', 1851, 'Magyar Könyvklub', 635, 'A5', 1, 4999, 5000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Háború és béke', 1869, 'Magyar Könyvklub', 1225, 'A5', 1, 5999, 36000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A rozsdaövezet', 1951, 'Typotex Kiadó', 277, 'A5', 1, 3999, 65000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A hobbit', 1937, 'Typotex Kiadó', 310, 'A5', 1, 3999, 100000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Fahrenheit 451', 1953, 'Agave Könyvek', 158, 'A5', 1, 3999, 10000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A kis herceg', 1943, 'Móra Ferenc Könyvkiadó', 93, 'A5', 1, 2999, 140000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Üvöltõ szelek', 1847, 'Kárpátia Stúdió Kiadó', 464, 'A5', 1, 3999, 10000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Jane Eyre', 1847, 'Helikon Kiadó', 507, 'A5', 1, 3999, 14000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Kalandorok', 1884, 'Gondolat Kiadó', 366, 'A5', 1, 3999, 20000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Tom Sawyer kalandjai', 1876, 'Gondolat Kiadó', 274, 'A5', 1, 3999, 20000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Két város története', 1859, 'Gondolat Kiadó', 341, 'A5', 1, 3999, 200000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Les Misérables', 1862, 'Gondolat Kiadó', 1463, 'A5', 1, 5999, 60000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A Gyûrûk Ura', 1954, 'Gondolat Kiadó', 1178, 'A5', 1, 5999, 150000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Tûz és jég dalai', 1996, 'Gabo Kiadó', 694, 'A5', 1, 4999, 90000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Narnia krónikái', 1950, 'Gabo Kiadó', 768, 'A5', 1, 4999, 120000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Az öreg halász és a tenger', 1952, 'Gabo Kiadó', 127, 'A5', 1, 2999, 20000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A megmentõ', 1993, 'Animus Kiadó', 208, 'A5', 1, 3999, 10000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A kitaszítottak', 1967, 'Animus Kiadó', 192, 'A5', 1, 3999, 15000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A titkos kert', 1911, 'Móra Könyvkiadó', 331, 'A5', 1, 3999, 8000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Kisasszonyok', 1868, 'Móra Könyvkiadó', 759, 'A5', 1, 4999, 35000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A lila színû székek', 1982, 'Móra Könyvkiadó', 304, 'A5', 1, 3999, 5000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A dûhezõk', 1939, 'Magvetõ Kiadó', 464, 'A5', 1, 4999, 14000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Elfújta a szél', 1936, 'Magvetõ Kiadó', 1037, 'A5', 1, 5999, 30000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Monte Cristo grófja', 1844, 'Alexandra Kiadó', 1276, 'A5', 1, 5999, 20000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Dorian Gray arcképe', 1890, 'Helikon Kiadó', 252, 'A5', 1, 3999, 7000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Drakula', 1897, 'Helikon Kiadó', 418, 'A5', 1, 3999, 8000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Frankenstein', 1818, 'Könyvmolyképzõ Kiadó', 280, 'A5', 1, 3999, 6000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Dr. Jekyll és Mr. Hyde különös esete', 1886, 'Könyvmolyképzõ Kiadó', 96, 'A5', 1, 2999, 5000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Az átváltozás', 1915, 'Magvetõ Kiadó', 55, 'A5', 1, 1999, 4000000);
-INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A per', 1925, 'Helikon Kiadó', 216, 'A5', 1, 3999, 3000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter ï¿½s a Bï¿½lcsek Kï¿½ve', 1997, 'Kosmosz Kiadï¿½', 223, 'A5', 1, 3999, 12000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter ï¿½s a Titkok Kamrï¿½ja', 1998, 'Kosmosz Kiadï¿½', 251, 'A5', 1, 3999, 8500000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter ï¿½s az azkabani fogoly', 1999, 'Kosmosz Kiadï¿½', 317, 'A5', 1, 3999, 10000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter ï¿½s a Tï¿½z Serlege', 2000, 'Kosmosz Kiadï¿½', 636, 'A5', 1, 3999, 11000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter ï¿½s a Fï¿½nix Rendje', 2003, 'Kosmosz Kiadï¿½', 766, 'A5', 1, 3999, 10500000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter ï¿½s a Fï¿½lvï¿½r Herceg', 2005, 'Kosmosz Kiadï¿½', 607, 'A5', 1, 3999, 9800000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Harry Potter ï¿½s a Halï¿½l ereklyï¿½i', 2007, 'Kosmosz Kiadï¿½', 607, 'A5', 1, 3999, 11500000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A lï¿½ny a vonaton', 2015, 'Maxim Kiadï¿½', 464, 'A5', 1, 4999, 2000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Az ï¿½hezï¿½k viadala', 2008, 'Akropolisz Kiadï¿½', 374, 'A5', 1, 3999, 23000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A kivï¿½lasztott', 2009, 'Akropolisz Kiadï¿½', 391, 'A5', 2, 3999, 20000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A lï¿½ngolï¿½ vilï¿½g', 2010, 'Akropolisz Kiadï¿½', 390, 'A5', 3, 3999, 18000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A tereptï¿½ra', 2009, 'L''Harmattan Kiadï¿½', 375, 'A5', 1, 3999, 6500000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A megprï¿½bï¿½ltatï¿½sok', 2010, 'L''Harmattan Kiadï¿½', 361, 'A5', 2, 3999, 6000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A Da Vinci-kï¿½d', 2003, 'Kossuth Kiadï¿½', 689, 'A5', 1, 4999, 80000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Angyalok ï¿½s dï¿½monok', 2000, 'Kossuth Kiadï¿½', 736, 'A5', 1, 4999, 39000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Az Alkimista', 1988, 'Alexandra Kiadï¿½', 163, 'A5', 1, 3999, 65000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Ne bï¿½ntsï¿½tok a feketerigï¿½t!', 1960, 'Magvetï¿½ Kiadï¿½', 281, 'A5', 1, 3999, 40000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('1984', 1949, 'Corvina Kiadï¿½', 328, 'A5', 1, 3999, 25000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Bï¿½szkesï¿½g ï¿½s balï¿½tï¿½let', 1813, 'Kï¿½nyvmolykï¿½pzï¿½ Kiadï¿½', 432, 'A5', 1, 3999, 20000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A nagy Gatsby', 1925, 'Kï¿½nyvmolykï¿½pzï¿½ Kiadï¿½', 180, 'A5', 1, 3999, 25000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Moby-Dick', 1851, 'Magyar Kï¿½nyvklub', 635, 'A5', 1, 4999, 5000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Hï¿½borï¿½ ï¿½s bï¿½ke', 1869, 'Magyar Kï¿½nyvklub', 1225, 'A5', 1, 5999, 36000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A rozsdaï¿½vezet', 1951, 'Typotex Kiadï¿½', 277, 'A5', 1, 3999, 65000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A hobbit', 1937, 'Typotex Kiadï¿½', 310, 'A5', 1, 3999, 100000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Fahrenheit 451', 1953, 'Agave Kï¿½nyvek', 158, 'A5', 1, 3999, 10000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A kis herceg', 1943, 'Mï¿½ra Ferenc Kï¿½nyvkiadï¿½', 93, 'A5', 1, 2999, 140000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('ï¿½vï¿½ltï¿½ szelek', 1847, 'Kï¿½rpï¿½tia Stï¿½diï¿½ Kiadï¿½', 464, 'A5', 1, 3999, 10000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Jane Eyre', 1847, 'Helikon Kiadï¿½', 507, 'A5', 1, 3999, 14000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Kalandorok', 1884, 'Gondolat Kiadï¿½', 366, 'A5', 1, 3999, 20000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Tom Sawyer kalandjai', 1876, 'Gondolat Kiadï¿½', 274, 'A5', 1, 3999, 20000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Kï¿½t vï¿½ros tï¿½rtï¿½nete', 1859, 'Gondolat Kiadï¿½', 341, 'A5', 1, 3999, 200000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Les Misï¿½rables', 1862, 'Gondolat Kiadï¿½', 1463, 'A5', 1, 5999, 60000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A Gyï¿½rï¿½k Ura', 1954, 'Gondolat Kiadï¿½', 1178, 'A5', 1, 5999, 150000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Tï¿½z ï¿½s jï¿½g dalai', 1996, 'Gabo Kiadï¿½', 694, 'A5', 1, 4999, 90000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Narnia krï¿½nikï¿½i', 1950, 'Gabo Kiadï¿½', 768, 'A5', 1, 4999, 120000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Az ï¿½reg halï¿½sz ï¿½s a tenger', 1952, 'Gabo Kiadï¿½', 127, 'A5', 1, 2999, 20000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A megmentï¿½', 1993, 'Animus Kiadï¿½', 208, 'A5', 1, 3999, 10000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A kitaszï¿½tottak', 1967, 'Animus Kiadï¿½', 192, 'A5', 1, 3999, 15000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A titkos kert', 1911, 'Mï¿½ra Kï¿½nyvkiadï¿½', 331, 'A5', 1, 3999, 8000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Kisasszonyok', 1868, 'Mï¿½ra Kï¿½nyvkiadï¿½', 759, 'A5', 1, 4999, 35000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A lila szï¿½nï¿½ szï¿½kek', 1982, 'Mï¿½ra Kï¿½nyvkiadï¿½', 304, 'A5', 1, 3999, 5000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A dï¿½hezï¿½k', 1939, 'Magvetï¿½ Kiadï¿½', 464, 'A5', 1, 4999, 14000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Elfï¿½jta a szï¿½l', 1936, 'Magvetï¿½ Kiadï¿½', 1037, 'A5', 1, 5999, 30000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Monte Cristo grï¿½fja', 1844, 'Alexandra Kiadï¿½', 1276, 'A5', 1, 5999, 20000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Dorian Gray arckï¿½pe', 1890, 'Helikon Kiadï¿½', 252, 'A5', 1, 3999, 7000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Drakula', 1897, 'Helikon Kiadï¿½', 418, 'A5', 1, 3999, 8000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Frankenstein', 1818, 'Kï¿½nyvmolykï¿½pzï¿½ Kiadï¿½', 280, 'A5', 1, 3999, 6000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Dr. Jekyll ï¿½s Mr. Hyde kï¿½lï¿½nï¿½s esete', 1886, 'Kï¿½nyvmolykï¿½pzï¿½ Kiadï¿½', 96, 'A5', 1, 2999, 5000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('Az ï¿½tvï¿½ltozï¿½s', 1915, 'Magvetï¿½ Kiadï¿½', 55, 'A5', 1, 1999, 4000000);
+INSERT INTO Konyv (Nev, Kiadas_eve, Kiado, Oldalszam, Meret, Kotet, Ar, Eladott_peldanyok_szama) VALUES ('A per', 1925, 'Helikon Kiadï¿½', 216, 'A5', 1, 3999, 3000000);
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `KonyvSzerzo`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `KonyvSzerzo`
 --
 
 CREATE TABLE KonyvSzerzo (
   Konyv_id NUMBER NOT NULL,
   Szerzo VARCHAR2(100) NOT NULL,
   PRIMARY KEY (Konyv_id, Szerzo),
-  FOREIGN KEY (Konyv_id) REFERENCES Konyv(Konyv_id)
+  FOREIGN KEY (Konyv_id) REFERENCES Konyv(Konyv_id) ON DELETE CASCADE
 );
 
 --
--- A tábla adatainak kiíratása `KonyvSzerzo`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `KonyvSzerzo`
 --
 
 INSERT INTO KonyvSzerzo VALUES (1, 'J.K. Rowling');
@@ -294,9 +294,9 @@ INSERT INTO KonyvSzerzo VALUES (22, 'Leo Tolstoy');
 INSERT INTO KonyvSzerzo VALUES (23, 'J.D. Salinger');
 INSERT INTO KonyvSzerzo VALUES (24, 'J.R.R. Tolkien');
 INSERT INTO KonyvSzerzo VALUES (25, 'Ray Bradbury');
-INSERT INTO KonyvSzerzo VALUES (26, 'Antoine de Saint-Exupéry');
-INSERT INTO KonyvSzerzo VALUES (27, 'Emily Brontë');
-INSERT INTO KonyvSzerzo VALUES (28, 'Charlotte Brontë');
+INSERT INTO KonyvSzerzo VALUES (26, 'Antoine de Saint-Exupï¿½ry');
+INSERT INTO KonyvSzerzo VALUES (27, 'Emily Brontï¿½');
+INSERT INTO KonyvSzerzo VALUES (28, 'Charlotte Brontï¿½');
 INSERT INTO KonyvSzerzo VALUES (29, 'Mark Twain');
 INSERT INTO KonyvSzerzo VALUES (30, 'Mark Twain');
 INSERT INTO KonyvSzerzo VALUES (31, 'Charles Dickens');
@@ -323,7 +323,7 @@ INSERT INTO KonyvSzerzo VALUES (50, 'Franz Kafka');
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `VasarloKonyv`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `VasarloKonyv`
 --
 
 CREATE TABLE VasarloKonyv (
@@ -335,7 +335,7 @@ CREATE TABLE VasarloKonyv (
 );
 
 --
--- A tábla adatainak kiíratása `VasarloKonyv`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `VasarloKonyv`
 --
 
 INSERT INTO VasarloKonyv (vasarlo_email, konyv_id) VALUES ('grace@example.com', 2);
@@ -437,7 +437,7 @@ INSERT INTO VasarloKonyv (vasarlo_email, konyv_id) VALUES ('alexander@example.co
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `Mufaj`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `Mufaj`
 --
 
 CREATE TABLE Mufaj (
@@ -445,22 +445,22 @@ CREATE TABLE Mufaj (
 );
 
 --
--- A tábla adatainak kiíratása `Mufaj`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `Mufaj`
 --
 
 INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Irodalom');
-INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Gyermek és ifjúsági');
-INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Ezotéria');
-INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Történelmi');
+INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Ezotï¿½ria');
+INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Tï¿½rtï¿½nelmi');
 INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Sci-fi');
 INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Romantikus');
-INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Filozófiai');
+INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Filozï¿½fiai');
 INSERT INTO Mufaj (Mufaj_megnevezes) VALUES ('Krimi');
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `Almufaj`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `Almufaj`
 --
 
 CREATE TABLE Almufaj (
@@ -471,18 +471,18 @@ CREATE TABLE Almufaj (
 );
 
 --
--- A tábla adatainak kiíratása `Almufaj`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `Almufaj`
 --
 
-INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Irodalom', 'Szépirodalom');
-INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Irodalom', 'Szórakoztató irodalom');
-INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Irodalom', 'Költészet');
-INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Gyermek és ifjúsági', 'Gyermekirodalom');
-INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Gyermek és ifjúsági', 'Ifjúsági irodalom');
+INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Irodalom', 'Szï¿½pirodalom');
+INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Irodalom', 'Szï¿½rakoztatï¿½ irodalom');
+INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Irodalom', 'Kï¿½ltï¿½szet');
+INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Gyermek ï¿½s ifjï¿½sï¿½gi', 'Gyermekirodalom');
+INSERT INTO Almufaj (Mufaj_megnevezes, Almufaj_megnevezes) VALUES ('Gyermek ï¿½s ifjï¿½sï¿½gi', 'Ifjï¿½sï¿½gi irodalom');
 
 -- --------------------------------------------------------
 --
--- Tábla szerkezet ehhez a táblához `KonyvMufaj`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `KonyvMufaj`
 --
 
 CREATE TABLE KonyvMufaj (
@@ -494,16 +494,16 @@ CREATE TABLE KonyvMufaj (
 );
 
 --
--- A tábla adatainak kiíratása `KonyvMufaj`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `KonyvMufaj`
 --
 
-INSERT INTO KonyvMufaj VALUES (1, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (2, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (3, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (4, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (5, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (6, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (7, 'Gyermek és ifjúsági');
+INSERT INTO KonyvMufaj VALUES (1, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (2, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (3, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (4, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (5, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (6, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (7, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
 INSERT INTO KonyvMufaj VALUES (8, 'Krimi');
 INSERT INTO KonyvMufaj VALUES (9, 'Sci-fi');
 INSERT INTO KonyvMufaj VALUES (10, 'Sci-fi');
@@ -518,30 +518,30 @@ INSERT INTO KonyvMufaj VALUES (18, 'Sci-fi');
 INSERT INTO KonyvMufaj VALUES (19, 'Romantikus');
 INSERT INTO KonyvMufaj VALUES (20, 'Romantikus');
 INSERT INTO KonyvMufaj VALUES (21, 'Irodalom');
-INSERT INTO KonyvMufaj VALUES (22, 'Történelmi');
+INSERT INTO KonyvMufaj VALUES (22, 'Tï¿½rtï¿½nelmi');
 INSERT INTO KonyvMufaj VALUES (23, 'Irodalom');
 INSERT INTO KonyvMufaj VALUES (24, 'Irodalom');
 INSERT INTO KonyvMufaj VALUES (25, 'Sci-fi');
-INSERT INTO KonyvMufaj VALUES (26, 'Filozófiai');
+INSERT INTO KonyvMufaj VALUES (26, 'Filozï¿½fiai');
 INSERT INTO KonyvMufaj VALUES (27, 'Romantikus');
 INSERT INTO KonyvMufaj VALUES (28, 'Romantikus');
-INSERT INTO KonyvMufaj VALUES (29, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (30, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (31, 'Történelmi');
-INSERT INTO KonyvMufaj VALUES (32, 'Történelmi');
+INSERT INTO KonyvMufaj VALUES (29, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (30, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (31, 'Tï¿½rtï¿½nelmi');
+INSERT INTO KonyvMufaj VALUES (32, 'Tï¿½rtï¿½nelmi');
 INSERT INTO KonyvMufaj VALUES (33, 'Irodalom');
 INSERT INTO KonyvMufaj VALUES (34, 'Irodalom');
 INSERT INTO KonyvMufaj VALUES (35, 'Irodalom');
 INSERT INTO KonyvMufaj VALUES (36, 'Irodalom');
 INSERT INTO KonyvMufaj VALUES (37, 'Sci-fi');
-INSERT INTO KonyvMufaj VALUES (38, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (39, 'Gyermek és ifjúsági');
-INSERT INTO KonyvMufaj VALUES (40, 'Gyermek és ifjúsági');
+INSERT INTO KonyvMufaj VALUES (38, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (39, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
+INSERT INTO KonyvMufaj VALUES (40, 'Gyermek ï¿½s ifjï¿½sï¿½gi');
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `Aruhaz`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `Aruhaz`
 --
 
 CREATE TABLE Aruhaz (
@@ -554,19 +554,19 @@ CREATE TABLE Aruhaz (
 );
 
 --
--- A tábla adatainak kiíratása `Aruhaz`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `Aruhaz`
 --
 
-INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (1081, 'Budapest', 'Páva utca', 35, 40);
-INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (6720, 'Szeged', 'Kossuth Lajos sugárút', 5, 15);
-INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (7621, 'Pécs', 'Rákóczi út', 10, 20);
+INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (1081, 'Budapest', 'Pï¿½va utca', 35, 40);
+INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (6720, 'Szeged', 'Kossuth Lajos sugï¿½rï¿½t', 5, 15);
+INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (7621, 'Pï¿½cs', 'Rï¿½kï¿½czi ï¿½t', 10, 20);
 INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (4034, 'Debrecen', 'Hajnal utca', 18, 25);
-INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (2394, 'Roxmorst', 'Varázslók útja', 1, 100);
+INSERT INTO Aruhaz (Iranyitoszam, Varos, Utca, Hazszam, Dolgozok_szama) VALUES (2394, 'Roxmorst', 'Varï¿½zslï¿½k ï¿½tja', 1, 100);
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `AruhazKonyv`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `AruhazKonyv`
 --
 
 CREATE TABLE AruhazKonyv (
@@ -578,7 +578,7 @@ CREATE TABLE AruhazKonyv (
 );
 
 --
--- A tábla adatainak kiíratása `AruhazKonyv`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `AruhazKonyv`
 --
 
 INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id) VALUES (1, 3);
@@ -595,7 +595,7 @@ INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id) VALUES (5, 42);
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `AdminAruhaz`
+-- Tï¿½bla szerkezet ehhez a tï¿½blï¿½hoz `AdminAruhaz`
 --
 
 CREATE TABLE AdminAruhaz (
@@ -607,7 +607,7 @@ CREATE TABLE AdminAruhaz (
 );
 
 --
--- A tábla adatainak kiíratása `AdminAruhaz`
+-- A tï¿½bla adatainak kiï¿½ratï¿½sa `AdminAruhaz`
 --
 
 INSERT INTO AdminAruhaz (admin_email, aruhaz_id) VALUES ('acsiga@streeler.com', 1);
