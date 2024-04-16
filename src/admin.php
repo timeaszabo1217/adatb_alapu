@@ -1,5 +1,6 @@
 <?php
 $connection = null;
+include 'menu.php';
 include 'process.php';
 
 if (isset($_POST['konyv_delete'])) {
@@ -65,33 +66,13 @@ if (isset($_POST["aruhaz_delete"])) {
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
-<div class="menu-container">
-    <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
-    <form action="kereses.php" method="GET" class="search-form">
-        <input type="text" name="kereses" class="search-input" placeholder="Keresés...">
-        <button type="submit" class="search-button">
-            <img class="icon" src="assets/imgs/search-removebg-preview.png" alt="Keresés">
-        </button>
-    </form>
-    <div class="login-menu">
-        <a href="logout.php">Kijelentkezés</a>
-    </div>
-</div>
-<nav>
-    <a href="konyvek.php" class="nav-link">Könyvek</a>
-    <a href="sikerlista.php" class="nav-link">Sikerlista</a>
-    <a href="ujdonsagok.php" class="nav-link">Újdonságok</a>
-    <a href="akciok.php" class="nav-link">Akciók</a>
-    <a href="informaciok.php" class="nav-link">Információk</a>
-</nav>
 <h1 style="text-align: center">Admin oldal</h1>
 
 <main>
-    <h2>Könyvek</h2>
-    <form method="POST" action="admin.php" accept-charset="utf-8">
-
+    <div class="book-form-container">
+        <h2>Könyvek törlése</h2>
+        <form method="POST" action="admin.php" accept-charset="utf-8">
         <section>
-            <div class="tablazat">
                 <table>
                     <thead>
                     <tr>
@@ -122,56 +103,55 @@ if (isset($_POST["aruhaz_delete"])) {
                         echo '<td>' . $row['KOTET'] . '</td>';
                         echo '<td>' . $row['AR'] . '</td>';
                         echo '<td>' . $row['ELADOTT_PELDANYOK_SZAMA'] . '</td>';
-                        echo "<td><button type='submit' name='konyv_delete' value='" . $row['KONYV_ID'] . "'>Törlés</button></td>";
+                        echo "<td><button class='continueButton' type='submit' name='konyv_delete' value='" . $row['KONYV_ID'] . "'>Törlés</button></td>";
                         echo '</tr>';
                     }
                     ?>
                     </tbody>
                 </table>
-            </div>
-    </form>
-
-
-    <div>
-        <br><br>
-        <strong>Könyv hozzáadása, módosítása</strong>
-        <form method="POST" action="admin.php" accept-charset="utf-8">
-            <br>
-            <label>Válassz a könyv listából, ha módosítani szeretnél:</label>
-            <select name="konyv_id">
-                <?php
-                $stid = oci_parse(database(), 'SELECT KONYV_ID, NEV, KIADAS_EVE, KIADO, OLDALSZAM, MERET, KOTET, AR, ELADOTT_PELDANYOK_SZAMA FROM Konyv');
-                oci_execute($stid);
-                while (($row = oci_fetch_row($stid)) != false) {
-                    echo '<option value="' . $row[0] . '">' . $row[1] . ' - ' . $row[2] . ' - ' . $row[3] . ' - ' . $row[4] . ' - ' . $row[5] . ' - ' . $row[6] . '- ' . $row[7] . '- ' . $row[8] . '</option>';
-                }
-                ?>
-            </select>
-            <label>Név:</label>
-            <input type="text" name="nev"/>
-            <label>Kiadás éve:</label>
-            <input type="number" name="kiadas_eve"/>
-            <label>Kiadó:</label>
-            <input type="text" name="kiado"/>
-            <label>Oldalszám:</label>
-            <input type="number" name="oldalszam"/>
-            <label>Méret:</label>
-            <input type="text" name="meret"/>
-            <label>Kötet:</label>
-            <input type="number" name="kotet"/>
-            <label>Ár:</label>
-            <input type="number" name="ar"/>
-            <label>Eladott példányok száma:</label>
-            <input type="number" name="eladott_peldanyok_szama"/>
-
-            <input type="submit" name="konyv_add" value="Elküld" />
-            <input type="submit" name="konyv_modify" value="Könyv módosítása"/>
         </form>
     </div>
-
-    </section>
-
-    <h2>Áruház adatok</h2>
+    <div class="book-form-container">
+        <h2>Könyv hozzáadása, módosítása</h2>
+        <form method="POST" action="admin.php" accept-charset="utf-8">
+            <div class="select-container">
+                <p>Válassz a könyv listából, ha módosítani szeretnél:</p>
+                <label>
+                    <select name="konyv_id">
+                        <?php
+                        $stid = oci_parse(database(), 'SELECT KONYV_ID, NEV, KIADAS_EVE, KIADO, OLDALSZAM, MERET, KOTET, AR, ELADOTT_PELDANYOK_SZAMA FROM Konyv');
+                        oci_execute($stid);
+                        while (($row = oci_fetch_row($stid)) != false) {
+                            echo '<option value="' . $row[0] . '">' . $row[1] . ' - ' . $row[2] . ' - ' . $row[3] . ' - ' . $row[4] . ' - ' . $row[5] . ' - ' . $row[6] . '- ' . $row[7] . '- ' . $row[8] . '</option>';
+                        }
+                        ?>
+                    </select>
+                </label>
+            </div>
+            <div class="input-container">
+                <label for="nev">Név:</label>
+                <input type="text" name="nev" id="nev" />
+                <label for="kiadas_eve">Kiadás éve:</label>
+                <input type="number" name="kiadas_eve" id="kiadas_eve" />
+                <label for="kiado">Kiadó:</label>
+                <input type="text" name="kiado" id="kiado" />
+                <label for="oldalszam">Oldalszám:</label>
+                <input type="number" name="oldalszam" id="oldalszam" />
+                <label for="meret">Méret:</label>
+                <input type="text" name="meret" id="meret" />
+                <label for="kotet">Kötet:</label>
+                <input type="number" name="kotet" id="kotet" />
+                <label for="ar">Ár:</label>
+                <input type="number" name="ar" id="ar" />
+                <label for="eladott_peldanyok_szama">Eladott példányok száma:</label>
+                <input type="number" name="eladott_peldanyok_szama" id="eladott_peldanyok_szama" />
+            </div>
+            <input class="continueButton" type="submit" name="konyv_add" value="Hozzáadás" />
+            <input class="continueButton" type="submit" name="konyv_modify" value="Módosítás" />
+        </form>
+    </div>
+    <div class="book-form-container">
+    <h2>Áruház törlése</h2>
     <section>
         <table>
             <thead>
@@ -198,15 +178,14 @@ if (isset($_POST["aruhaz_delete"])) {
                 echo "<td>" . $row['UTCA'] . "</td>";
                 echo "<td>" . $row['HAZSZAM'] . "</td>";
                 echo "<td>" . $row['DOLGOZOK_SZAMA'] . "</td>";
-                echo "<td><form method='POST'><button type='submit' name='aruhaz_delete' value='" . $row['ARUHAZ_ID'] . "'>Törlés</button></form></td>";
+                echo "<td><form method='POST'><button class='continueButton' type='submit' name='aruhaz_delete' value='" . $row['ARUHAZ_ID'] . "'>Törlés</button></form></td>";
                 echo "</tr>";
             }
             ?>
             </tbody>
         </table>
     </section>
-
-
+    </div>
 </main>
 </body>
 </html>

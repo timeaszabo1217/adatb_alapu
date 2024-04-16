@@ -16,7 +16,7 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
-<div class="search-bar">
+<div class="search-bar user-select-none">
     <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
     <form action="kereses.php" method="GET" class="search-form">
         <label>
@@ -48,7 +48,7 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
         </a>
     </div>
 </div>
-<nav>
+<nav class="user-select-none">
     <a href="konyvek.php" class="nav-link">Könyvek</a>
     <a href="sikerlista.php" class="nav-link">Sikerlista</a>
     <a href="ujdonsagok.php" class="nav-link">Újdonságok</a>
