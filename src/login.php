@@ -30,8 +30,8 @@ include 'process.php';
         if ($result) {
             $isAdmin = checkAdmin($email);
 
-            $_SESSION['user_role'] = $isAdmin ? 'admin' : 'vasarlo';
-            $_SESSION['user_id'] = $email;
+            $_SESSION['user_type'] = $isAdmin ? 'admin' : 'vasarlo';
+            $_SESSION['username'] = $email;
 
             echo "<div id='successMessage'>Sikeres bejelentkezés!</div>";
 
