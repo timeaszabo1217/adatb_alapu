@@ -108,7 +108,7 @@ if (isset($_POST["aruhaz_modify"])) {
                 <tr>
                     <th>Irányítószám</th>
                     <th>Város</th>
-                    <th>Utca</th>
+                    <th>Közterület</th>
                     <th>Házszám</th>
                     <th>Dolgozók száma</th>
                 </tr>
