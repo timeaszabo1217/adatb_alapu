@@ -13,7 +13,7 @@ if (isset($_POST['konyv_delete'])) {
 }
 
 if (isset($_POST["konyv_add"])) {
-    $konyv_id = $_POST["konyv_id"];
+    echo 'Hello';
     $nev = $_POST["nev"];
     $kiadas_eve = $_POST["kiadas_eve"];
     $kiado = $_POST["kiado"];
@@ -24,10 +24,9 @@ if (isset($_POST["konyv_add"])) {
     $eladott_peldanyok_szama = $_POST["eladott_peldanyok_szama"];
 
     $stid = oci_parse(database(),
-        "INSERT INTO KONYV (KONYV_ID, NEV, KIADAS_EVE, KIADO, OLDALSZAM, MERET, KOTET, AR, ELADOTT_PELDANYOK_SZAMA)
-         VALUES (:konyv_id, :nev, :kiadas_eve, :kiado, :oldalszam, :meret, :kotet, :ar, :eladott_peldanyok_szama)");
+        "INSERT INTO KONYV (NEV, KIADAS_EVE, KIADO, OLDALSZAM, MERET, KOTET, AR, ELADOTT_PELDANYOK_SZAMA)
+         VALUES (:nev, :kiadas_eve, :kiado, :oldalszam, :meret, :kotet, :ar, :eladott_peldanyok_szama)");
 
-    oci_bind_by_name($stid, ":konyv_id", $konyv_id);
     oci_bind_by_name($stid, ":nev", $nev);
     oci_bind_by_name($stid, ":kiadas_eve", $kiadas_eve);
     oci_bind_by_name($stid, ":kiado", $kiado);
@@ -52,9 +51,6 @@ if (isset($_POST["aruhaz_delete"])) {
     header("Location: admin.php");
     exit();
 }
-
-
-
 
 
 ?>
@@ -91,119 +87,124 @@ if (isset($_POST["aruhaz_delete"])) {
 <h1 style="text-align: center">Admin oldal</h1>
 
 <main>
-    <h2>Könyv adatok hozzáadása, módosítása, törlése</h2>
+    <h2>Könyvek</h2>
     <form method="POST" action="admin.php" accept-charset="utf-8">
 
-    <section>
-        <div class="tablazat">
-            <strong>Könyvek</strong>
-            <table>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Név</th>
-                    <th>Kiadás éve</th>
-                    <th>Kiadó</th>
-                    <th>Oldalszám</th>
-                    <th>Méret</th>
-                    <th>Kötet</th>
-                    <th>Ár</th>
-                    <th>Eladott példányok száma</th>
-                    <th>Műveletek</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                $stid = oci_parse(database(), 'SELECT * FROM konyv');
-                oci_execute($stid);
-                while (($row = oci_fetch_assoc($stid)) != false) {
-                    echo '<tr>';
-                    echo '<td>'.$row['KONYV_ID'].'</td>';
-                    echo '<td>'.$row['NEV'].'</td>';
-                    echo '<td>'.$row['KIADAS_EVE'].'</td>';
-                    echo '<td>'.$row['KIADO'].'</td>';
-                    echo '<td>'.$row['OLDALSZAM'].'</td>';
-                    echo '<td>'.$row['MERET'].'</td>';
-                    echo '<td>'.$row['KOTET'].'</td>';
-                    echo '<td>'.$row['AR'].'</td>';
-                    echo '<td>'.$row['ELADOTT_PELDANYOK_SZAMA'].'</td>';
-                    echo "<td><form method='POST'><button type='submit' name='konyv_delete' value='" . $row['KONYV_ID'] . "'>Törlés</button></form></td>";
-                    echo '</tr>';
-                }
-                ?>
-                </tbody>
-            </table>
-        </div>
-
-        <form action="admin.php" method="post">
-            <label for="konyv_id">Könyv ID:</label>
-            <input type="number" id="konyv_id" name="konyv_id"><br><br>
-
-            <label for="nev">Név:</label>
-            <input type="text" id="nev" name="nev"><br><br>
-
-            <label for="kiadas_eve">Kiadás éve:</label>
-            <input type="number" id="kiadas_eve" name="kiadas_eve"><br><br>
-
-            <label for="kiado">Kiadó:</label>
-            <input type="text" id="kiado" name="kiado"><br><br>
-
-            <label for="oldalszam">Oldalszám:</label>
-            <input type="number" id="oldalszam" name="oldalszam"><br><br>
-
-            <label for="meret">Méret:</label>
-            <input type="text" id="meret" name="meret"><br><br>
-
-            <label for="kotet">Kötet:</label>
-            <input type="number" id="kotet" name="kotet"><br><br>
-
-            <label for="ar">Ár:</label>
-            <input type="number" id="ar" name="ar"><br><br>
-
-            <label for="eladott_peldanyok_szama">Eladott példányok száma:</label>
-            <input type="number" id="eladott_peldanyok_szama" name="eladott_peldanyok_szama"><br><br>
-
-            <input type="submit" value="Könyv hozzáadása" name="konyv_add">
-        </form>
-        </div>
-        </section>
-
-        <h2>Áruház adatok</h2>
         <section>
-            <table>
-                <thead>
-                <tr>
-                    <th>Aruház ID</th>
-                    <th>Irányítószám</th>
-                    <th>Város</th>
-                    <th>Utca</th>
-                    <th>Házszám</th>
-                    <th>Dolgozók száma</th>
-                    <th>Műveletek</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div class="tablazat">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Név</th>
+                        <th>Kiadás éve</th>
+                        <th>Kiadó</th>
+                        <th>Oldalszám</th>
+                        <th>Méret</th>
+                        <th>Kötet</th>
+                        <th>Ár</th>
+                        <th>Eladott példányok száma</th>
+                        <th>Törlés</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $stid = oci_parse(database(), 'SELECT * FROM konyv');
+                    oci_execute($stid);
+                    while (($row = oci_fetch_assoc($stid)) != false) {
+                        echo '<tr>';
+                        echo '<td>' . $row['KONYV_ID'] . '</td>';
+                        echo '<td>' . $row['NEV'] . '</td>';
+                        echo '<td>' . $row['KIADAS_EVE'] . '</td>';
+                        echo '<td>' . $row['KIADO'] . '</td>';
+                        echo '<td>' . $row['OLDALSZAM'] . '</td>';
+                        echo '<td>' . $row['MERET'] . '</td>';
+                        echo '<td>' . $row['KOTET'] . '</td>';
+                        echo '<td>' . $row['AR'] . '</td>';
+                        echo '<td>' . $row['ELADOTT_PELDANYOK_SZAMA'] . '</td>';
+                        echo "<td><button type='submit' name='konyv_delete' value='" . $row['KONYV_ID'] . "'>Törlés</button></td>";
+                        echo '</tr>';
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+    </form>
+
+
+    <div>
+        <br><br>
+        <strong>Könyv hozzáadása, módosítása</strong>
+        <form method="POST" action="admin.php" accept-charset="utf-8">
+            <br>
+            <label>Válassz a könyv listából, ha módosítani szeretnél:</label>
+            <select name="konyv_id">
                 <?php
-                $query = "SELECT * FROM Aruhaz";
-                $stid = oci_parse(database(), $query);
+                $stid = oci_parse(database(), 'SELECT KONYV_ID, NEV, KIADAS_EVE, KIADO, OLDALSZAM, MERET, KOTET, AR, ELADOTT_PELDANYOK_SZAMA FROM Konyv');
                 oci_execute($stid);
-                while ($row = oci_fetch_assoc($stid)) {
-                    echo "<tr>";
-                    echo "<td>" . $row['ARUHAZ_ID'] . "</td>";
-                    echo "<td>" . $row['IRANYITOSZAM'] . "</td>";
-                    echo "<td>" . $row['VAROS'] . "</td>";
-                    echo "<td>" . $row['UTCA'] . "</td>";
-                    echo "<td>" . $row['HAZSZAM'] . "</td>";
-                    echo "<td>" . $row['DOLGOZOK_SZAMA'] . "</td>";
-                    echo "<td><form method='POST'><button type='submit' name='aruhaz_delete' value='" . $row['ARUHAZ_ID'] . "'>Törlés</button></form></td>";
-                    echo "</tr>";
+                while (($row = oci_fetch_row($stid)) != false) {
+                    echo '<option value="' . $row[0] . '">' . $row[1] . ' - ' . $row[2] . ' - ' . $row[3] . ' - ' . $row[4] . ' - ' . $row[5] . ' - ' . $row[6] . '- ' . $row[7] . '- ' . $row[8] . '</option>';
                 }
                 ?>
-                </tbody>
-            </table>
-        </section>
+            </select>
+            <label>Név:</label>
+            <input type="text" name="nev"/>
+            <label>Kiadás éve:</label>
+            <input type="number" name="kiadas_eve"/>
+            <label>Kiadó:</label>
+            <input type="text" name="kiado"/>
+            <label>Oldalszám:</label>
+            <input type="number" name="oldalszam"/>
+            <label>Méret:</label>
+            <input type="text" name="meret"/>
+            <label>Kötet:</label>
+            <input type="number" name="kotet"/>
+            <label>Ár:</label>
+            <input type="number" name="ar"/>
+            <label>Eladott példányok száma:</label>
+            <input type="number" name="eladott_peldanyok_szama"/>
 
+            <input type="submit" name="konyv_add" value="Elküld" />
+            <input type="submit" name="konyv_modify" value="Könyv módosítása"/>
+        </form>
+    </div>
 
+    </section>
+
+    <h2>Áruház adatok</h2>
+    <section>
+        <table>
+            <thead>
+            <tr>
+                <th>Aruház ID</th>
+                <th>Irányítószám</th>
+                <th>Város</th>
+                <th>Utca</th>
+                <th>Házszám</th>
+                <th>Dolgozók száma</th>
+                <th>Műveletek</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $query = "SELECT * FROM Aruhaz";
+            $stid = oci_parse(database(), $query);
+            oci_execute($stid);
+            while ($row = oci_fetch_assoc($stid)) {
+                echo "<tr>";
+                echo "<td>" . $row['ARUHAZ_ID'] . "</td>";
+                echo "<td>" . $row['IRANYITOSZAM'] . "</td>";
+                echo "<td>" . $row['VAROS'] . "</td>";
+                echo "<td>" . $row['UTCA'] . "</td>";
+                echo "<td>" . $row['HAZSZAM'] . "</td>";
+                echo "<td>" . $row['DOLGOZOK_SZAMA'] . "</td>";
+                echo "<td><form method='POST'><button type='submit' name='aruhaz_delete' value='" . $row['ARUHAZ_ID'] . "'>Törlés</button></form></td>";
+                echo "</tr>";
+            }
+            ?>
+            </tbody>
+        </table>
+    </section>
 
 
 </main>
