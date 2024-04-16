@@ -103,6 +103,30 @@ nav {
     color: var(--yellowish);
 }
 
+.menu {
+    font-family: Arial, sans-serif;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 5%;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: var(--font);
+}
+
+.menu ul li a:hover {
+    opacity: 0.8;
+}
+
+
 #logo {
     height: 75px;
     margin: 15px 50px;
@@ -188,13 +212,14 @@ nav {
     display: block;
 }
 
-
 .button-container {
-    position: fixed;
+    position: sticky;
     top: 10px;
-    right: 50px;
+    margin-left: 150px;
+    right: 20px;
     display: flex;
     justify-content: flex-end;
+    z-index: 1;
 }
 
 .button {
@@ -285,6 +310,11 @@ nav {
     .nav-link {
         margin: 0 20px;
     }
+
+    .button-container {
+        margin-left: 100px;
+        right: 10px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -294,5 +324,10 @@ nav {
 
     .button-container {
         right: 20px;
+    }
+
+    .button-container {
+        margin-left: 50px;
+        right: 5px;
     }
 }
