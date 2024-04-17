@@ -16,23 +16,39 @@ include 'process.php';
 
 if (isset($_POST["fiok_delete"])) {
     $vasarlo_email = $_POST['fiok_delete'];
-    $query = "DELETE FROM Vasarlo WHERE VASARLO_EMAIL = :vasarlo_email";
-    $stid = oci_parse(database(), $query);
-    oci_bind_by_name($stid, ':VASARLO_EMAIL', $vasarlo_email);
+
+    $vasarlo_konyv_query = "DELETE FROM VasarloKonyv WHERE VASARLO_EMAIL = :vasarlo_email";
+    $vasarlo_konyv_stid = oci_parse(database(), $vasarlo_konyv_query);
+    oci_bind_by_name($vasarlo_konyv_stid, ':vasarlo_email', $vasarlo_email);
+    oci_execute($vasarlo_konyv_stid);
+
+    $vasarlo_delete_query = "DELETE FROM Vasarlo WHERE VASARLO_EMAIL = :vasarlo_email";
+    $stid = oci_parse(database(), $vasarlo_delete_query);
+    oci_bind_by_name($stid, ':vasarlo_email', $vasarlo_email);
     oci_execute($stid);
+
     header("Location: fiok_kezeles.php");
     exit();
 }
 
+
 if (isset($_POST["admin_delete"])) {
     $admin_email = $_POST['admin_delete'];
-    $query = "DELETE FROM Admin WHERE ADMIN_EMAIL = :admin_email";
-    $stid = oci_parse(database(), $query);
-    oci_bind_by_name($stid, ':ADMIN_EMAIL', $admin_email);
+
+    $admin_aruhaz_query = "DELETE FROM AdminAruhaz WHERE ADMIN_EMAIL = :admin_email";
+    $admin_aruhaz_stid = oci_parse(database(), $admin_aruhaz_query);
+    oci_bind_by_name($admin_aruhaz_stid, ':admin_email', $admin_email);
+    oci_execute($admin_aruhaz_stid);
+
+    $admin_delete_query = "DELETE FROM Admin WHERE ADMIN_EMAIL = :admin_email";
+    $stid = oci_parse(database(), $admin_delete_query);
+    oci_bind_by_name($stid, ':admin_email', $admin_email);
     oci_execute($stid);
+
     header("Location: fiok_kezeles.php");
     exit();
 }
+
 
 if (isset($_POST["fiok_add"])) {
     $vasarlo_email = $_POST["email_add"];
@@ -88,6 +104,12 @@ if (isset($_POST["fiok_modify"])) {
         $query = "UPDATE Vasarlo SET ";
         $update_values = array();
 
+        $query_vasarlo_konyv = "UPDATE VasarloKonyv SET Vasarlo_email = :uj_email WHERE Vasarlo_email = :eredeti_email";
+        $stid_vasarlo_konyv = oci_parse(database(), $query_vasarlo_konyv);
+        oci_bind_by_name($stid_vasarlo_konyv, ":uj_email", $_POST["email_modify"]);
+        oci_bind_by_name($stid_vasarlo_konyv, ":eredeti_email", $vasarlo_email);
+        oci_execute($stid_vasarlo_konyv);
+
         if (!empty($_POST["email_modify"])) {
             $query .= "VASARLO_EMAIL = :vasarlo_email, ";
             $update_values[':vasarlo_email'] = $_POST["email_modify"];
@@ -136,6 +158,12 @@ if (isset($_POST["admin_modify"])) {
         $admin_email = $_POST["admin_email"];
         $query = "UPDATE Admin SET ";
         $update_values = array();
+
+        $query_admin_aruhaz = "UPDATE AdminAruhaz SET Admin_email = :uj_email WHERE Admin_email = :eredeti_email";
+        $stid_admin_aruhaz = oci_parse(database(), $query_admin_aruhaz);
+        oci_bind_by_name($stid_admin_aruhaz, ":uj_email", $_POST["email_modify"]);
+        oci_bind_by_name($stid_admin_aruhaz, ":eredeti_email", $admin_email);
+        oci_execute($stid_admin_aruhaz);
 
         if (!empty($_POST["email_modify"])) {
             $query .= "ADMIN_EMAIL = :admin_email, ";
