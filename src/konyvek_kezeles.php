@@ -98,19 +98,26 @@ if (isset($_POST["konyv_modify"])) {
 
 if (isset($_POST["mufaj_assign"])) {
     $konyv_id = $_POST["konyv_id"];
-    $selected_genres = $_POST["mufaj_megnevezes"];
+    $selected_genre = $_POST["mufaj_megnevezes"];
 
-    $delete_query = "DELETE FROM KonyvMufaj WHERE Konyv_id = :konyv_id";
-    $delete_stid = oci_parse(database(), $delete_query);
-    oci_bind_by_name($delete_stid, ':konyv_id', $konyv_id);
-    oci_execute($delete_stid);
+    $check_query = "SELECT COUNT(*) FROM KonyvMufaj WHERE Konyv_id = :konyv_id";
+    $check_stid = oci_parse(database(), $check_query);
+    oci_bind_by_name($check_stid, ':konyv_id', $konyv_id);
+    oci_execute($check_stid);
+    $count = oci_fetch_row($check_stid)[0];
 
-    foreach ($selected_genres as $genre) {
+    if ($count == 0) {
         $insert_query = "INSERT INTO KonyvMufaj (Konyv_id, Mufaj_megnevezes) VALUES (:konyv_id, :mufaj_megnevezes)";
         $insert_stid = oci_parse(database(), $insert_query);
         oci_bind_by_name($insert_stid, ':konyv_id', $konyv_id);
-        oci_bind_by_name($insert_stid, ':mufaj_megnevezes', $genre);
+        oci_bind_by_name($insert_stid, ':mufaj_megnevezes', $selected_genre);
         oci_execute($insert_stid);
+    } else {
+        $update_query = "UPDATE KonyvMufaj SET Mufaj_megnevezes = :mufaj_megnevezes WHERE Konyv_id = :konyv_id";
+        $update_stid = oci_parse(database(), $update_query);
+        oci_bind_by_name($update_stid, ':konyv_id', $konyv_id);
+        oci_bind_by_name($update_stid, ':mufaj_megnevezes', $selected_genre);
+        oci_execute($update_stid);
     }
 
     header("Location: konyvek_kezeles.php");
