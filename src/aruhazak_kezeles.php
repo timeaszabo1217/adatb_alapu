@@ -246,7 +246,7 @@ if (isset($_POST["aruhaz_assign"])) {
                     ?>
 
                 </select>
-                <label for="mufaj">Áruház:</label>
+                <label for="aruhaz_id">Áruház:</label>
                 <select name="aruhaz_id" id="aruhaz_id">
                     <?php
 

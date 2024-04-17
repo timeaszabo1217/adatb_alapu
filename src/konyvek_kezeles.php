@@ -202,6 +202,34 @@ if (isset($_POST['almufaj_delete'])) {
     header("Location: konyvek_kezeles.php");
     exit();
 }
+
+if (isset($_POST['szerzo_assign'])){
+    $check_query = oci_parse(database(), 'SELECT COUNT(*) as count FROM KonyvSzerzo WHERE Konyv_id = :konyv_id AND Szerzo = :szerzo');
+    oci_bind_by_name($check_query, ':konyv_id', $_POST['konyv_id']);
+    oci_bind_by_name($check_query, ':szerzo', $_POST['new_szerzo']);
+    oci_execute($check_query);
+    $count = oci_fetch_row($check_query)[0];
+
+
+    if ($count == 0) {
+        $insert_query = oci_parse(database(), 'INSERT INTO KonyvSzerzo (Konyv_id, Szerzo) VALUES (:konyv_id, :szerzo)');
+        oci_bind_by_name($insert_query, ':konyv_id', $_POST['konyv_id']);
+        oci_bind_by_name($insert_query, ':szerzo', $_POST['new_szerzo']);
+        oci_execute($insert_query);
+        echo "A szerző hozzá lett rendelve a könyvhöz.";
+    } else {
+        echo "Ez a szerző már hozzá van rendelve ehhez a könyvhöz.";
+    }
+
+
+}
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -464,6 +492,28 @@ if (isset($_POST['almufaj_delete'])) {
             </table>
         </form>
     </div>
+    <div class="book-form-container">
+        <h2>Szerző hozzárendelése könyvhöz</h2>
+        <form method="POST" action="konyvek_kezeles.php" accept-charset="utf-8">
+            <div class="input-container">
+            <label for="konyv_id">Könyv:</label>
+            <select name="konyv_id" id="konyv_id">
+                <?php
+                $stid = oci_parse(database(), 'SELECT KONYV_ID, NEV FROM Konyv');
+                oci_execute($stid);
+                while (($row = oci_fetch_assoc($stid)) != false) {
+                    echo '<option value="' . $row['KONYV_ID'] . '">' . $row['NEV'] . '</option>';
+                }
+                ?>
+                </select>
+            <label for="new_szerzo">Szerző:</label>
+            <input type="text" name="new_szerzo" id="new_szerzo">
+            </div>
+            <input class="continueButton" type="submit" name="szerzo_assign" value="Hozzárendelés">
+        </form>
+    </div>
+
+
 </main>
 </body>
 </html>
