@@ -1,16 +1,6 @@
 <?php
 include 'menu.php';
-?>
 
-<?php
-
-if (!isset($_SESSION['user_type'])) {
-    header('Location: login.php');
-    exit;
-}
-?>
-
-<?php
 $connection = null;
 include 'process.php';
 

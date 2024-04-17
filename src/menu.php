@@ -4,6 +4,10 @@ session_start();
 $isLoggedIn = isset($_SESSION['user_id']);
 $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
 
+if (!isset($_SESSION['user_type'])) {
+    header('Location: login.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
