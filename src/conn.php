@@ -4,8 +4,8 @@ global $connection;
 $host = 'localhost';
 $port = '1521';
 $db_service_name = 'orania2';
-$username = ''; // saját név
-$password = ''; // saját jelszó
+$username = '';
+$password = '';
 
 $connection = oci_connect(
     $username,
