@@ -42,7 +42,6 @@ if (isset($_POST["fiok_add"])) {
     $utca = $_POST["utca_add"];
     $megjegyzes = $_POST["megjegyzes_add"];
 
-
     $jelszo = password_hash($jelszo, PASSWORD_DEFAULT);
 
     $stid = oci_parse(database(),
@@ -83,7 +82,7 @@ if (isset($_POST["admin_add"])) {
     header("Location: fiok_kezeles.php");
 }
 
-if (isset($_POST["vasarlo_modify"])) {
+if (isset($_POST["fiok_modify"])) {
     if (isset($_POST["vasarlo_email"])) {
         $vasarlo_email = $_POST["vasarlo_email"];
         $query = "UPDATE Vasarlo SET ";
@@ -123,7 +122,7 @@ if (isset($_POST["vasarlo_modify"])) {
         foreach ($update_values as $key => &$value) {
             oci_bind_by_name($stid, $key, $value);
         }
-        oci_bind_by_name($stid, ':eredeti_email', $admin_email);
+        oci_bind_by_name($stid, ':eredeti_email', $vasarlo_email);
         oci_bind_by_name($stid, ":jelszo", $jelszo);
         oci_execute($stid);
 
@@ -318,7 +317,8 @@ if (isset($_POST["admin_modify"])) {
             </div>
             <input class="continueButton" type="submit" name="fiok_modify" value="Módosítás" />
         </form>
-
+    </div>
+    <div class="book-form-container">
         <h2>Admin módosítása</h2>
         <form method="POST" action="fiok_kezeles.php" accept-charset="utf-8">
             <div class="select-container">
