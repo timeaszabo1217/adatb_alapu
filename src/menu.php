@@ -7,7 +7,7 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
 ?>
 
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +34,7 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
                 <a href="admin.php" class="nav-link">Admin</a>
             <?php endif; ?>
             <div class="dropdown">
-                <button class="dropbtn"><img class="icon" src="assets/imgs/profile.png" alt="Profil"></button>
+                <button class=dropbtn><img class=icon src=assets/imgs/profile.png alt=Profil></button>
                 <div class="dropdown-content">
                     <a href="profil.php">Profil</a>
                     <a href="logout.php">Kijelentkezés</a>
