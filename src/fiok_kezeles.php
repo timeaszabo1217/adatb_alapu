@@ -62,9 +62,6 @@ if (isset($_POST["fiok_modify"])) {
                 $update_values[':utca'] = $_POST["utca_modify"];
             }
 
-
-
-
         $query = rtrim($query, ", ");
         $query .= " WHERE ARUHAZ_ID = :aruhaz_id";
 
@@ -80,7 +77,6 @@ if (isset($_POST["fiok_modify"])) {
         exit();
     }
 }
-
 ?>
 
 <!DOCTYPE html>
