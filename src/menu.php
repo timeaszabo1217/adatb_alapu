@@ -16,31 +16,33 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
-<div class="search-bar user-select-none">
-    <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
-    <form action="kereses.php" method="GET" class="search-form">
-        <label>
-            <input type="text" name="kereses" class="search-input" placeholder="Keresés...">
-        </label>
-        <button type="submit" class="search-button">
-            <img class="icon" src="assets/imgs/search-removebg-preview.png" alt="Keresés">
-        </button>
-    </form>
-    <div class="login-menu">
-        <?php if (!$isLoggedIn) : ?>
-            <a href="login.php" class="nav-link">Bejelentkezés/Regisztráció</a>
-        <?php else : ?>
-            <?php if ($userRole === 'admin') : ?>
-                <a href="admin.php" class="nav-link">Admin</a>
-            <?php endif; ?>
-            <div class="dropdown">
-                <button class=dropbtn><img class=icon src=assets/imgs/profile.png alt=Profil></button>
-                <div class="dropdown-content">
-                    <a href="profil.php">Profil</a>
-                    <a href="logout.php">Kijelentkezés</a>
+<div class="div-container user-select-none">
+    <div class="search-bar">
+        <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
+        <form action="kereses.php" method="GET" class="search-form">
+            <label>
+                <input type="text" name="kereses" class="search-input" placeholder="Keresés...">
+            </label>
+            <button type="submit" class="search-button">
+                <img class="icon" src="assets/imgs/search-removebg-preview.png" alt="Keresés">
+            </button>
+        </form>
+        <div class="login-menu">
+            <?php if (!$isLoggedIn) : ?>
+                <a href="login.php" class="nav-link">Bejelentkezés/Regisztráció</a>
+            <?php else : ?>
+                <?php if ($userRole === 'admin') : ?>
+                    <a href="admin.php" class="nav-link">Admin</a>
+                <?php endif; ?>
+                <div class="dropdown">
+                    <button class=dropbtn><img class=icon src=assets/imgs/profile.png alt=Profil></button>
+                    <div class="dropdown-content">
+                        <a href="profil.php">Profil</a>
+                        <a href="logout.php">Kijelentkezés</a>
+                    </div>
                 </div>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </div>
     <div class="button-container">
         <a href="kosar.php" class="button">
