@@ -1,14 +1,13 @@
 <?php
-session_start();
+include 'menu.php';
+?>
+
+<?php
 
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     header('Location: login.php');
     exit;
 }
-?>
-
-<?php
-include 'menu.php';
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,8 @@
 <?php
-session_start();
+include 'menu.php';
+?>
+
+<?php
 
 if (!isset($_SESSION['user_type'])) {
     header('Location: login.php');
@@ -9,7 +12,6 @@ if (!isset($_SESSION['user_type'])) {
 
 <?php
 $connection = null;
-include 'menu.php';
 include 'process.php';
 
 if (!isset($_SESSION['username'])) {
