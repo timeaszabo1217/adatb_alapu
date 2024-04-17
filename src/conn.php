@@ -7,6 +7,7 @@ $db_service_name = 'orania2';
 $username = ''; // saját név
 $password = ''; // saját jelszó
 
+
 $connection = oci_connect(
     $username,
     $password,
