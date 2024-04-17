@@ -50,40 +50,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="container">
     <h1>Profil</h1>
     <?php if ($_SESSION['user_type'] === 'admin') { ?>
-    <p>Email: <?php echo $_SESSION['username']; ?></p>
-    <p>Kezdés időpontja: <?php echo $user['KEZDES_IDOPONTJA']; ?></p>
-    <p>Beosztás: <?php echo $user['BEOSZTAS']; ?></p>
+        <p>Email: <?php echo $_SESSION['username']; ?></p>
+        <p>Kezdés időpontja: <?php echo $user['KEZDES_IDOPONTJA'] ?? ''; ?></p>
+        <p>Beosztás: <?php echo $user['BEOSZTAS'] ?? ''; ?></p>
 
         <h1>Profil módosítása</h1>
         <form method="post" action="">
             <input type="hidden" name="email" value="<?php echo $_SESSION['username']; ?>">
 
             <p><label for="starting">Kezdés időpontja:</label></p><br>
-            <input type="text" id="starting" name="starting" value="<?php echo $user['KEZDES_IDOPONTJA']; ?>"><br>
+            <input type="text" id="starting" name="starting" value="<?php echo $user['KEZDES_IDOPONTJA'] ?? ''; ?>"><br>
             <p><label for="position">Beosztás:</label></p><br>
-            <input type="text" id="position" name="position" value="<?php echo $user['BEOSZTAS']; ?>"><br>
+            <input type="text" id="position" name="position" value="<?php echo $user['BEOSZTAS'] ?? ''; ?>"><br>
             <input class="continueButton" type="submit" name="update" value="Módosítás">
         </form>
     <?php }?>
 
     <?php if ($_SESSION['user_type'] === 'vasarlo') { ?>
-    <p>Email: <?php echo $_SESSION['username']; ?></p>
-    <p>Irányítószám: <?php echo $user['IRANYITOSZAM']; ?></p>
-    <p>Város: <?php echo $user['VAROS']; ?></p>
-    <p>Utca: <?php echo $user['UTCA']; ?></p>
-    <p>Megjegyzés: <?php echo $user['MEGJEGYZES']; ?></p>
+        <p>Email: <?php echo $_SESSION['username']; ?></p>
+        <p>Irányítószám: <?php echo $user['IRANYITOSZAM'] ?? ''; ?></p>
+        <p>Város: <?php echo $user['VAROS'] ?? ''; ?></p>
+        <p>Utca: <?php echo $user['UTCA'] ?? ''; ?></p>
+        <p>Megjegyzés: <?php echo $user['MEGJEGYZES'] ?? ''; ?></p>
 
         <h1>Profil módosítása</h1>
         <form method="post" action="">
             <input type="hidden" name="email" value="<?php echo $_SESSION['username']; ?>">
             <p><label for="postal_code">Irányítószám:</label></p><br>
-            <input type="number" id="postal_code" name="postal_code" value="<?php echo $user['IRANYITOSZAM']; ?>"><br>
+            <input type="number" id="postal_code" name="postal_code" value="<?php echo $user['IRANYITOSZAM'] ?? ''; ?>"><br>
             <p><label for="city">Város:</label></p><br>
-            <input type="text" id="city" name="city" value="<?php echo $user['VAROS']; ?>"><br>
+            <input type="text" id="city" name="city" value="<?php echo $user['VAROS'] ?? ''; ?>"><br>
             <p><label for="street">Utca:</label></p><br>
-            <input type="text" id="street" name="street" value="<?php echo $user['UTCA']; ?>"><br>
+            <input type="text" id="street" name="street" value="<?php echo $user['UTCA'] ?? ''; ?>"><br>
             <p><label for="comments">Megjegyzés:</label></p><br>
-            <input type="text" id="comments" name="comments" value="<?php echo $user['MEGJEGYZES']; ?>"><br>
+            <input type="text" id="comments" name="comments" value="<?php echo $user['MEGJEGYZES'] ?? ''; ?>"><br>
             <input class="continueButton" type="submit" name="update" value="Módosítás">
         </form>
     <?php }?>

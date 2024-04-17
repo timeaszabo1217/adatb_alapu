@@ -80,7 +80,7 @@ h2 {
     font-weight: bold;
 }
 
-p {
+p, label, select {
     font-family: 'Roboto Light', sans-serif;
     font-weight: lighter;
 }
@@ -231,11 +231,16 @@ nav {
     display: block;
 }
 
+.div-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .button-container {
-    position: sticky;
     top: 10px;
-    margin-left: 150px;
-    right: 20px;
+    right: 50px;
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
     z-index: 1;
