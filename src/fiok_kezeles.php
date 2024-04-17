@@ -116,14 +116,14 @@ if (isset($_POST["vasarlo_modify"])) {
         }
 
         $query = rtrim($query, ", ");
-        $query .= " WHERE VASARLO_EMAIL = :vasarlo_email";
+        $query .= " WHERE VASARLO_EMAIL = :eredeti_email";
 
         $stid = oci_parse(database(), $query);
 
         foreach ($update_values as $key => &$value) {
             oci_bind_by_name($stid, $key, $value);
         }
-        oci_bind_by_name($stid, ':vasarlo_email', $vasarlo_email);
+        oci_bind_by_name($stid, ':eredeti_email', $admin_email);
         oci_bind_by_name($stid, ":jelszo", $jelszo);
         oci_execute($stid);
 
@@ -160,14 +160,14 @@ if (isset($_POST["admin_modify"])) {
         }
 
         $query = rtrim($query, ", ");
-        $query .= " WHERE ADMIN_EMAIL = :admin_email";
+        $query .= " WHERE ADMIN_EMAIL = :eredeti_email";
 
         $stid = oci_parse(database(), $query);
 
         foreach ($update_values as $key => &$value) {
             oci_bind_by_name($stid, $key, $value);
         }
-        oci_bind_by_name($stid, ':admin_email', $admin_email);
+        oci_bind_by_name($stid, ':eredeti_email', $admin_email);
         oci_bind_by_name($stid, ":jelszo", $jelszo);
         oci_execute($stid);
 
@@ -204,7 +204,6 @@ if (isset($_POST["admin_modify"])) {
                 <thead>
                 <tr>
                     <th>Email</th>
-                    <th>Jelszó</th>
                     <th>Irányítószám</th>
                     <th>Város</th>
                     <th>Utca</th>
@@ -219,7 +218,6 @@ if (isset($_POST["admin_modify"])) {
                 while ($row = oci_fetch_assoc($stid)) {
                     echo "<tr>";
                     echo "<td>" . $row['VASARLO_EMAIL'] . "</td>";
-                    echo "<td>" . $row['JELSZO'] . "</td>";
                     echo "<td>" . $row['IRANYITOSZAM'] . "</td>";
                     echo "<td>" . $row['VAROS'] . "</td>";
                     echo "<td>" . $row['UTCA'] . "</td>";
@@ -237,7 +235,6 @@ if (isset($_POST["admin_modify"])) {
         <form method="POST" action="fiok_kezeles.php" accept-charset="utf-8">
             <section>
                 <table>
-                    <!-- Táblázat megjelenítése az adminokkal -->
                     <?php
                     $query = "SELECT * FROM Admin";
                     $stid = oci_parse(database(), $query);
@@ -245,7 +242,6 @@ if (isset($_POST["admin_modify"])) {
                     while ($row = oci_fetch_assoc($stid)) {
                         echo "<tr>";
                         echo "<td>" . $row['ADMIN_EMAIL'] . "</td>";
-                        echo "<td>" . $row['JELSZO'] . "</td>";
                         echo "<td>" . $row['KEZDES_IDOPONTJA'] . "</td>";
                         echo "<td>" . $row['BEOSZTAS'] . "</td>";
                         echo "<td><button class='continueButton' type='submit' name='admin_delete' value='" . $row['ADMIN_EMAIL'] . "'>Törlés</button></td>";
