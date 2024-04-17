@@ -34,9 +34,9 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
                 <a href="admin.php" class="nav-link">Admin</a>
             <?php endif; ?>
             <div class="dropdown">
-                <button class="dropbtn">Profil</button>
+                <button class="dropbtn"><img class="icon" src="assets/imgs/profile.png" alt="Profil"></button>
                 <div class="dropdown-content">
-                    <a href="profil.php">Adatok módosítása</a>
+                    <a href="profil.php">Profil</a>
                     <a href="logout.php">Kijelentkezés</a>
                 </div>
             </div>
