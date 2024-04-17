@@ -89,6 +89,21 @@ if (isset($_POST["aruhaz_modify"])) {
     }
 }
 
+
+if (isset($_POST["aruhaz_assign"])) {
+    $konyv_id = $_POST["konyv_id"];
+    $selected_genre = $_POST["aruhaz_id"];
+
+    $insert_query = "INSERT INTO ARUHAZKONYV (aruhaz_id, konyv_id) VALUES (:aruhaz_id, :konyv_id)";
+    $insert_stid = oci_parse(database(), $insert_query);
+    oci_bind_by_name($insert_stid, ':aruhaz_id', $selected_genre);
+    oci_bind_by_name($insert_stid, ':konyv_id', $konyv_id);
+    oci_execute($insert_stid);
+
+    header("Location: aruhazak_kezeles.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -214,6 +229,37 @@ if (isset($_POST["aruhaz_modify"])) {
             </div>
             <input class="continueButton" type="submit" name="aruhaz_modify" value="Módosítás" />
         </form>
+    </div>
+
+    <div class="book-form-container">
+        <h2>Áruház hozzárendelés könyvhöz</h2>
+        <div class="select-container">
+            <form method="POST" action="aruhazak_kezeles.php" accept-charset="utf-8">
+                <label for="konyv_id">Könyv:</label>
+                <select name="konyv_id" id="konyv_id">
+                    <?php
+                    $stid = oci_parse(database(), 'SELECT KONYV_ID, NEV FROM Konyv');
+                    oci_execute($stid);
+                    while (($row = oci_fetch_assoc($stid)) != false) {
+                        echo '<option value="' . $row['KONYV_ID'] . '">'  . $row['KONYV_ID'] . ' - ' . $row['NEV'] . '</option>';
+                    }
+                    ?>
+
+                </select>
+                <label for="mufaj">Áruház:</label>
+                <select name="aruhaz_id" id="aruhaz_id">
+                    <?php
+
+                    $stid = oci_parse(database(), 'SELECT Aruhaz_id, Varos FROM Aruhaz');
+                    oci_execute($stid);
+                    while (($row = oci_fetch_assoc($stid)) != false) {
+                        echo '<option value="' . $row['ARUHAZ_ID'] . '">' . $row['VAROS'] . '</option>';
+                    }
+                    ?>
+                </select>
+                <input class="continueButton" type="submit" name="aruhaz_assign" value="Hozzárendelés">
+            </form>
+        </div>
     </div>
 </main>
 </body>
