@@ -44,7 +44,6 @@ include 'process.php';
     oci_close($connection);
     ?>
 
-
     <form method="post">
         <p>E-mail cím
             <label>
