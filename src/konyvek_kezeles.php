@@ -178,6 +178,18 @@ if (isset($_POST["almufaj_assign"])) {
         exit();
     }
 }
+
+if (isset($_POST['almufaj_delete'])) {
+    $almufaj_megnevezes = $_POST['almufaj_delete'];
+
+    $delete_query = "DELETE FROM Almufaj WHERE Almufaj_megnevezes = :almufaj_megnevezes";
+    $delete_stid = oci_parse(database(), $delete_query);
+    oci_bind_by_name($delete_stid, ':almufaj_megnevezes', $almufaj_megnevezes);
+    oci_execute($delete_stid);
+
+    header("Location: konyvek_kezeles.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -412,6 +424,32 @@ if (isset($_POST["almufaj_assign"])) {
                 <input type="text" name="new_almufaj" id="new_almufaj">
             </div>
             <input class="continueButton" type="submit" name="almufaj_assign" value="Hozzárendelés">
+        </form>
+    </div>
+    <div class="book-form-container">
+        <h2>Alműfaj törlése</h2>
+        <form method="POST" action="konyvek_kezeles.php" accept-charset="utf-8">
+            <table>
+                <thead>
+                <tr>
+                    <th>Műfaj megnevezés</th>
+                    <th>Alműfaj megnevezés</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $stid = oci_parse(database(), 'SELECT * FROM Almufaj');
+                oci_execute($stid);
+                while (($row = oci_fetch_assoc($stid)) != false) {
+                    echo '<tr>';
+                    echo '<td>' . $row['MUFAJ_MEGNEVEZES'] . '</td>';
+                    echo '<td>' . $row['ALMUFAJ_MEGNEVEZES'] . '</td>';
+                    echo "<td><button class='continueButton' type='submit' name='almufaj_delete' value='" . $row['ALMUFAJ_MEGNEVEZES'] . "'>Törlés</button></td>";
+                    echo '</tr>';
+                }
+                ?>
+                </tbody>
+            </table>
         </form>
     </div>
 </main>
