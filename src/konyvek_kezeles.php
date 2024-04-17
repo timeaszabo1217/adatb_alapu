@@ -148,6 +148,7 @@ if (isset($_POST["mufaj_add"])) {
         $insert_query = "INSERT INTO Mufaj (Mufaj_megnevezes) VALUES (:new_genre)";
         $insert_stid = oci_parse(database(), $insert_query);
         oci_bind_by_name($insert_stid, ':new_genre', $new_genre);
+        oci_execute($insert_stid);
     }
 }
 
