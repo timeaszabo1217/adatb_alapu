@@ -3,16 +3,13 @@ $connection = null;
 include 'menu.php';
 include 'process.php';
 
-// Check if user is logged in
 if (!isset($_SESSION['username'])) {
     header('Location: login.php');
     exit;
 }
 
-// Fetch user data
 $user = getUserData($_SESSION['username']);
 
-// Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['update'])) {
 
@@ -28,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<div id='errorMessage'>Hiba történt az adatok frissítése során.</div>";
         }
     } elseif (isset($_POST['delete'])) {
-        // Delete user
         $result = deleteUserData($_SESSION['username']);
         if ($result) {
             echo "<div id='successMessage'>Felhasználó törölve!</div>";
@@ -43,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

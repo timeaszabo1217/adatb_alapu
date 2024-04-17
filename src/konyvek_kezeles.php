@@ -12,16 +12,6 @@ if (isset($_POST['konyv_delete'])) {
     header("Location: konyvek_kezeles.php");
     exit();
 }
-if (isset($_POST['mufaj_delete'])) {
-    $mufaj = $_POST['mufaj_delete'];
-    $query = "DELETE FROM Mufaj WHERE Mufaj_megnevezes = :mufaj";
-    $stid = oci_parse(database(), $query);
-    oci_bind_by_name($stid, ':mufaj', $mufaj);
-    oci_execute($stid);
-    header("Location: konyvek_kezeles.php");
-    exit();
-}
-
 
 if (isset($_POST["konyv_add"])) {
     $nev = $_POST["nev_add"];
@@ -127,7 +117,6 @@ if (isset($_POST["mufaj_assign"])) {
     exit();
 }
 
-
 if (isset($_POST["mufaj_add"])) {
     $new_genre = $_POST["mufaj"];
 
@@ -141,19 +130,29 @@ if (isset($_POST["mufaj_add"])) {
         $insert_query = "INSERT INTO Mufaj (Mufaj_megnevezes) VALUES (:new_genre)";
         $insert_stid = oci_parse(database(), $insert_query);
         oci_bind_by_name($insert_stid, ':new_genre', $new_genre);
-
-        if (oci_execute($insert_stid)) {
-            echo "Az új műfaj sikeresen hozzá lett adva.";
-        } else {
-            echo "Hiba történt az új műfaj hozzáadása során.";
-        }
     }
 }
 
+if (isset($_POST['mufaj_delete'])) {
+    $mufaj = $_POST['mufaj_delete'];
+
+    $query_konyvmufaj = "DELETE FROM KonyvMufaj WHERE Mufaj_megnevezes = :mufaj";
+    $stid_konyvmufaj = oci_parse(database(), $query_konyvmufaj);
+    oci_bind_by_name($stid_konyvmufaj, ':mufaj', $mufaj);
+    oci_execute($stid_konyvmufaj);
+
+    $query_mufaj = "DELETE FROM Mufaj WHERE Mufaj_megnevezes = :mufaj";
+    $stid_mufaj = oci_parse(database(), $query_mufaj);
+    oci_bind_by_name($stid_mufaj, ':mufaj', $mufaj);
+    oci_execute($stid_mufaj);
+
+    header("Location: konyvek_kezeles.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -254,7 +253,7 @@ if (isset($_POST["mufaj_add"])) {
         <h2>Könyv módosítása</h2>
         <form method="POST" action="konyvek_kezeles.php" accept-charset="utf-8">
             <div class="select-container">
-                <p>Válassz a könyv listából, ha módosítani szeretnél:</p>
+                <p>Válasszd ki a módosítani szánt könyvet a listából:</p>
                 <label>
                     <select name="konyv_id">
                         <?php
@@ -307,7 +306,7 @@ if (isset($_POST["mufaj_add"])) {
     <div class="book-form-container">
         <h2>Mufaj hozzárendelés könyvhöz</h2>
         <div class="select-container">
-            <form method="POST" action="konyvek_kezeles.php">
+            <form method="POST" action="konyvek_kezeles.php" accept-charset="utf-8">
                 <label for="konyv_id">Könyv:</label>
                 <select name="konyv_id" id="konyv_id">
                     <?php
@@ -333,38 +332,39 @@ if (isset($_POST["mufaj_add"])) {
         </div>
     </div>
     <div class="book-form-container">
-            <h2>Mufajok</h2>
-        <form method="POST" action="konyvek_kezeles.php">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Műfaj megnevezés</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $stid = oci_parse(database(), 'SELECT * FROM Mufaj');
-                        oci_execute($stid);
-                        while (($row = oci_fetch_assoc($stid)) != false) {
-                            echo '<tr>';
-                            echo '<td>' . $row['MUFAJ_MEGNEVEZES'] . '</td>';
-                            echo "<td><button class='continueButton' type='submit' name='mufaj_delete' value='" . $row['MUFAJ_MEGNEVEZES'] . "'>Törlés</button></td>";
-                            echo '</tr>';
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-        <h2>Mufaj hozzáadása</h2>
-        <div class="select-container">
-
-                <label for="mufaj">Műfaj neve:</label>
-                <label>
-                    <input type="text" name="mufaj">
-                </label>
-                <input class="continueButton" type="submit" name="mufaj_add" value="Hozzáadás">
-            </form>
-        </div>
-</main>
+        <h2>Mufaj törlése</h2>
+        <form method="POST" action="konyvek_kezeles.php" accept-charset="utf-8">
+            <table>
+                <thead>
+                <tr>
+                    <th>Műfaj megnevezés</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $stid = oci_parse(database(), 'SELECT * FROM Mufaj');
+                oci_execute($stid);
+                while (($row = oci_fetch_assoc($stid)) != false) {
+                    echo '<tr>';
+                    echo '<td>' . $row['MUFAJ_MEGNEVEZES'] . '</td>';
+                    echo "<td><button class='continueButton' type='submit' name='mufaj_delete' value='" . $row['MUFAJ_MEGNEVEZES'] . "'>Törlés</button></td>";
+                    echo '</tr>';
+                }
+                ?>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div class="book-form-container">
+        <form method="POST" action="konyvek_kezeles.php" accept-charset="utf-8">
+            <h2>Mufaj hozzáadása</h2>
+            <label for="mufaj">Műfaj neve:</label>
+            <label>
+                <input type="text" name="mufaj">
+            </label>
+            <input class="continueButton" type="submit" name="mufaj_add" value="Hozzáadás">
+        </form>
+    </div>
 </main>
 </body>
 </html>
