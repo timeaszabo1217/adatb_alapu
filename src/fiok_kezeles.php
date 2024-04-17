@@ -198,36 +198,36 @@ if (isset($_POST["admin_modify"])) {
     <div class="book-form-container">
         <h2>Vásárló törlése</h2>
         <form method="POST" action="fiok_kezeles.php" accept-charset="utf-8">
-        <section>
-            <table>
-                <thead>
-                <tr>
-                    <th>Email</th>
-                    <th>Irányítószám</th>
-                    <th>Város</th>
-                    <th>Utca</th>
-                    <th>Megjegyzés</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                $query = "SELECT * FROM Vasarlo";
-                $stid = oci_parse(database(), $query);
-                oci_execute($stid);
-                while ($row = oci_fetch_assoc($stid)) {
-                    echo "<tr>";
-                    echo "<td>" . $row['VASARLO_EMAIL'] . "</td>";
-                    echo "<td>" . $row['IRANYITOSZAM'] . "</td>";
-                    echo "<td>" . $row['VAROS'] . "</td>";
-                    echo "<td>" . $row['UTCA'] . "</td>";
-                    echo "<td>" . $row['MEGJEGYZES'] . "</td>";
-                    echo "<td><button class='continueButton' type='submit' name='fiok_delete' value='" . $row['VASARLO_EMAIL'] . "'>Törlés</button></td>";
-                    echo "</tr>";
-                }
-                ?>
-                </tbody>
-            </table>
-        </section>
+            <section>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Irányítószám</th>
+                        <th>Város</th>
+                        <th>Utca</th>
+                        <th>Megjegyzés</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $query = "SELECT * FROM Vasarlo";
+                    $stid = oci_parse(database(), $query);
+                    oci_execute($stid);
+                    while ($row = oci_fetch_assoc($stid)) {
+                        echo "<tr>";
+                        echo "<td>" . $row['VASARLO_EMAIL'] . "</td>";
+                        echo "<td>" . $row['IRANYITOSZAM'] . "</td>";
+                        echo "<td>" . $row['VAROS'] . "</td>";
+                        echo "<td>" . $row['UTCA'] . "</td>";
+                        echo "<td>" . $row['MEGJEGYZES'] . "</td>";
+                        echo "<td><button class='continueButton' type='submit' name='fiok_delete' value='" . $row['VASARLO_EMAIL'] . "'>Törlés</button></td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </section>
         </form>
 
         <h2>Admin törlése</h2>
@@ -291,15 +291,15 @@ if (isset($_POST["admin_modify"])) {
         <form method="POST" action="fiok_kezeles.php" accept-charset="utf-8">
             <div class="select-container">
                 <p>Válassz a vásárlók listából, ha módosítani szeretnél:</p>
-                    <select name="vasarlo_email" id = "vasarlo_email">
-                        <?php
-                        $stid = oci_parse(database(), 'SELECT VASARLO_EMAIL FROM Vasarlo');
-                        oci_execute($stid);
-                        while (($row = oci_fetch_row($stid)) != false) {
-                            echo '<option value="' . $row[0] . '">' . $row[0]  . '</option>';
-                        }
-                        ?>
-                    </select>
+                <select name="vasarlo_email" id = "vasarlo_email">
+                    <?php
+                    $stid = oci_parse(database(), 'SELECT VASARLO_EMAIL FROM Vasarlo');
+                    oci_execute($stid);
+                    while (($row = oci_fetch_row($stid)) != false) {
+                        echo '<option value="' . $row[0] . '">' . $row[0]  . '</option>';
+                    }
+                    ?>
+                </select>
             </div>
             <div class="input-container">
                 <label for="email_modify">Email cím:</label>
@@ -323,15 +323,15 @@ if (isset($_POST["admin_modify"])) {
         <form method="POST" action="fiok_kezeles.php" accept-charset="utf-8">
             <div class="select-container">
                 <p>Válassz az adminok közül a módosításhoz:</p>
-                    <select name="admin_email" id ="admin_email">
-                        <?php
-                        $stid = oci_parse(database(), 'SELECT ADMIN_EMAIL FROM Admin');
-                        oci_execute($stid);
-                        while (($row = oci_fetch_row($stid)) != false) {
-                            echo '<option value="' . $row[0] .'">' . $row[0] . '</option>';
-                        }
-                        ?>
-                    </select>
+                <select name="admin_email" id ="admin_email">
+                    <?php
+                    $stid = oci_parse(database(), 'SELECT ADMIN_EMAIL FROM Admin');
+                    oci_execute($stid);
+                    while (($row = oci_fetch_row($stid)) != false) {
+                        echo '<option value="' . $row[0] .'">' . $row[0] . '</option>';
+                    }
+                    ?>
+                </select>
             </div>
             <div class="input-container">
                 <label for="email_modify">Új email cím:</label>
