@@ -223,7 +223,7 @@ if (isset($_POST['almufaj_delete'])) {
 </div>
 <main>
     <div class="book-form-container">
-        <h2>Könyvek törlése123</h2>
+        <h2>Könyvek törlése</h2>
         <form method="POST" action="konyvek_kezeles.php" accept-charset="utf-8">
             <section>
                 <table>
