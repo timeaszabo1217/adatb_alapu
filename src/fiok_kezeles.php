@@ -14,11 +14,11 @@ if (isset($_POST["fiok_delete"])) {
 }
 
 if (isset($_POST["fiok_add"])) {
-    $iranyitoszam = $_POST["iranyitoszam_add"];
+    $vasarlo_email = $_POST["email_add"];
     $varos = $_POST["varos_add"];
     $utca = $_POST["utca_add"];
     $hazszam = $_POST["hazszam_add"];
-    $dolgozok_szama = $_POST["dolgozok_szama_add"];
+    $jelszo = $_POST["jelszo_add"];
 
     $stid = oci_parse(database(),
         "INSERT INTO ARUHAZ (IRANYITOSZAM, VAROS, UTCA, HAZSZAM, DOLGOZOK_SZAMA)
@@ -141,6 +141,14 @@ if (isset($_POST["fiok_modify"])) {
         <h2>Vásárló hozzáadása</h2>
         <form method="POST" action="fiok_kezeles.php" accept-charset="utf-8">
             <div class="input-container">
+                <label for="email">Email cím:</label>
+                <label>
+                    <input type="text" name="email_add"/>
+                </label>
+                <label for="jelszo">Jelszó:</label>
+                <label>
+                    <input type="text" name="jelszo_add"/>
+                </label>
                 <label for="iranyitoszam">Irányítószám:</label>
                 <label>
                     <input type="text" name="iranyitoszam_add"/>
@@ -152,17 +160,8 @@ if (isset($_POST["fiok_modify"])) {
                 <label for="utca">Utca:</label>
                 <label>
                     <input type="text" name="utca_add"/>
-                </label>
-                <label for="hazszam">Házszám:</label>
-                <label>
-                    <input type="text" name="hazszam_add"/>
-                </label>
-                <label for="dolgozok_szama">Dolgozók száma:</label>
-                <label>
-                    <input type="text" name="dolgozok_szama_add"/>
-                </label>
             </div>
-            <input class="continueButton" type="submit" name="aruhaz_add" value="Hozzáadás" />
+            <input class="continueButton" type="submit" name="fiok_add" value="Hozzáadás" />
         </form>
     </div>
     <div class="book-form-container">
