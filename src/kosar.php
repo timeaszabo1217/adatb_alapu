@@ -30,17 +30,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title']) && isse
 <h1>Kosár tartalma</h1>
 
 <?php
-// Kosár megjelenítése
 $total_price = 0;
 
-// Az adatbázisból származó könyv információk
 $query = 'SELECT NEV, AR FROM Konyv';
 $stid = oci_parse(database(), $query);
 oci_execute($stid);
 
 $books = [];
 while ($row = oci_fetch_assoc($stid)) {
-    $books[] = $row; // Egész sor hozzáadása a tömbhöz
+    $books[] = $row;
 }
 
 foreach ($_SESSION['cart'] as $item) {
@@ -54,6 +52,7 @@ foreach ($_SESSION['cart'] as $item) {
 
 <p>Összesen: <?php echo $total_price; ?> Ft</p>
 
-<!-- Vásárlás gomb -->
-<form method="post" action="vasarlas.php">
-    <input type="s
+<form method="post" action="fizetes.php">
+    <input type="submit" value="Fizetés">
+</form>
+
