@@ -342,6 +342,23 @@ nav {
     height: 25px;
 }
 
+.sidebar input[type="submit"] {
+    float: left;
+    margin-left: 100px;
+    margin-top: 80px;
+}
+
+.sidebar .container div {
+    float: left;
+    line-height: 34px;
+}
+
+.sidebar .container label {
+    display: block;
+    clear: left;
+    color: var(--green);
+}
+
 #borito {
     width: 120px;
 }
@@ -378,6 +395,13 @@ nav {
 }
 
 .books-container {
+    width: 50%;
+}
+
+.genre-container {
+    position: relative;
+    top: 10px;
+    margin-left: 60px;
     width: 50%;
 }
 
