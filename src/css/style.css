@@ -386,6 +386,11 @@ input[type="checkbox"]:checked {
     width: 120px;
 }
 
+#borito-adatlap {
+    width: 500px;
+    margin: 0;
+}
+
 .icon:hover {
     opacity: 0.8;
 }
