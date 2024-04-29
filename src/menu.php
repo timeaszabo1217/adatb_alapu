@@ -17,7 +17,9 @@ $userRole = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'vasarlo';
 <body>
 <div class="div-container user-select-none">
     <div class="search-bar">
-        <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
+        <a href="index.php">
+            <img id="logo" src="assets/imgs/Streeler-removebg-preview.png" alt="logo">
+        </a>
         <form action="kereses.php" method="GET" class="search-form">
             <label>
                 <input type="text" name="kereses" class="search-input" placeholder="Keresés...">
