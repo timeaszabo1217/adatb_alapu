@@ -331,6 +331,10 @@ nav {
     height: 25px;
 }
 
+#borito {
+    width: 120px;
+}
+
 .icon:hover {
     opacity: 0.8;
 }
@@ -362,6 +366,10 @@ nav {
     font-family: Proxima, sans-serif;
 }
 
+.books-container {
+    width: 50%;
+}
+
 .select-container,
 .input-container {
     margin-bottom: 20px;
@@ -385,6 +393,11 @@ nav {
     text-align: center;
     border: none;
     border-radius: 10px;
+}
+
+.basketButton {
+    position: absolute;
+    right: 400px;
 }
 
 @keyframes fadeIn {
