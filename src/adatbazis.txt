@@ -591,16 +591,16 @@ CREATE TABLE AruhazKonyv (
 -- A tábla adatainak kiíratása `AruhazKonyv`
 --
 
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (1, 3, 15);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (2, 10, 20);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (3, 25, 12);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (4, 12, 14);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (5, 40, 18);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (1, 17, 22);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (2, 8, 16);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (3, 30, 13);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (4, 19, 11);
-INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, darabszam) VALUES (5, 42, 24);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (1, 3, 15);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (2, 10, 20);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (3, 25, 12);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (4, 12, 14);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (5, 40, 18);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (1, 17, 22);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (2, 8, 16);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (3, 30, 13);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (4, 19, 11);
+INSERT INTO AruhazKonyv (Aruhaz_id, Konyv_id, keszlet) VALUES (5, 42, 24);
 
 UPDATE AruhazKonyv
 SET keszlet = 0
