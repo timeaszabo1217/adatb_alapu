@@ -14,7 +14,9 @@ include 'process.php';
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
+<img src="assets/imgs/header.png" alt="header" style="width: 100%;">
 <h1>Sikerlista</h1>
+<img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <div class="book-form-container books-container">
     <?php
     $query = 'SELECT K.NEV, K.AR, KS.SZERZO FROM Konyv K INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id ORDER BY K.Eladott_peldanyok_szama DESC';
