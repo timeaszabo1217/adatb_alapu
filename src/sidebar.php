@@ -2,11 +2,11 @@
 include 'process.php';
 $total_books = 0;
 ?>
+<img src="assets/imgs/header.png" alt="header" style="width: 100%;">
+<h1>Könyvek</h1>
+<img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <div class="sidebar">
     <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <img src="assets/imgs/header.png" alt="header" style="width: 100%;">
-        <h1>Könyvek</h1>
-        <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
         <p style="margin-left: 60px; margin-bottom: 0;">Műfaj</p>
         <div class="genre-container">
             <?php

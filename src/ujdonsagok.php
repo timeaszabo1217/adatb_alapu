@@ -17,7 +17,7 @@ include 'process.php';
 <img src="assets/imgs/header.png" alt="header" style="width: 100%;">
 <h1>Újdonságok</h1>
 <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
-<div style="margin-left: 40px">
+<div style="margin-left: 40px; margin-top: 20px;">
     <?php
     $query = 'SELECT K.NEV, K.AR, KS.SZERZO FROM Konyv K INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id ORDER BY K.Konyv_id DESC FETCH FIRST 12 ROWS ONLY';
     $stid = oci_parse(database(), $query);

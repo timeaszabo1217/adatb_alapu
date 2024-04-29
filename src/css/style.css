@@ -342,6 +342,10 @@ nav {
     height: 25px;
 }
 
+.sidebar {
+    width: 25%;
+}
+
 .sidebar input[type="submit"] {
     float: left;
     margin-left: 100px;
@@ -356,6 +360,12 @@ nav {
 .sidebar .container label {
     display: block;
     clear: left;
+}
+
+.sidebar,
+.books-container {
+    display: inline-block;
+    vertical-align: top;
 }
 
 input[type="checkbox"] {
@@ -409,6 +419,8 @@ input[type="checkbox"]:checked {
 
 .books-container {
     width: 50%;
+    margin-top: 20px;
+    margin-left: 100px;
 }
 
 .genre-container {
