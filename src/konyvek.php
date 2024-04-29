@@ -14,6 +14,9 @@ include 'process.php';
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
+<div class="sidebar">
+    <?php include 'sidebar.php'; ?>
+</div>
 <h1>Könyvek</h1>
 <div class="book-form-container books-container">
     <?php
