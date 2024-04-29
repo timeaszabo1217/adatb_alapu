@@ -1,5 +1,6 @@
 <?php
 include 'process.php';
+$total_books = 0;
 ?>
 <div class="sidebar">
     <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -51,7 +52,10 @@ include 'process.php';
         echo '<input class="continueButton" type="submit" value="Kosárba">';
         echo '</form>';
         echo '</div>';
+
+        $total_books++;
     }
     oci_free_statement($stid);
+    echo '<p>Találatok száma: ' . $total_books . '</p>';
     ?>
 </div>
