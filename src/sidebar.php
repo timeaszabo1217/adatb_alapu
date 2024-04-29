@@ -12,11 +12,9 @@ include 'process.php';
             $query = "SELECT * FROM Mufaj";
             $stid = oci_parse(database(), $query);
             oci_execute($stid);
-
             while ($row = oci_fetch_assoc($stid)) {
                 echo '<label><input type="checkbox" name="genres[]" value="' . $row['MUFAJ_MEGNEVEZES'] . '"> ' . $row['MUFAJ_MEGNEVEZES'] . '</label><br>';
             }
-
             oci_free_statement($stid);
             ?>
         </div>

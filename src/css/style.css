@@ -345,7 +345,7 @@ nav {
 .sidebar input[type="submit"] {
     float: left;
     margin-left: 100px;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .sidebar .container div {
@@ -356,7 +356,20 @@ nav {
 .sidebar .container label {
     display: block;
     clear: left;
-    color: var(--green);
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--green);
+    border-radius: 3px;
+    outline: none;
+    margin: 0;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--green);
 }
 
 #borito {
