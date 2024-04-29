@@ -1,19 +1,12 @@
-CREATE OR REPLACE PROCEDURE TOP3KONYV AS
-  TYPE t_konyv IS TABLE OF Konyv%ROWTYPE INDEX BY PLS_INTEGER;
-v_konyvek t_konyv;
-v_index PLS_INTEGER := 1;
+create or replace PROCEDURE TOP3KONYV AS
+    CURSOR c_konyv IS
+        SELECT K.KONYV_ID, K.NEV, K.AR, KS.SZERZO, K.ELADOTT_PELDANYOK_SZAMA
+        FROM Konyv K
+                 INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id
+        ORDER BY K.ELADOTT_PELDANYOK_SZAMA DESC
+            FETCH FIRST 3 ROWS ONLY;
 BEGIN
-    FOR r_konyv IN (SELECT K.KONYV_ID, K.NEV, K.AR, KS.SZERZO, K.ELADOTT_PELDANYOK_SZAMA
-                  FROM Konyv K 
-                  INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id
-                  ORDER BY K.ELADOTT_PELDANYOK_SZAMA DESC
-                  FETCH FIRST 3 ROWS ONLY)
-  LOOP
-    v_konyvek(v_index) := r_konyv;
-v_index := v_index + 1;
-END LOOP;
-
-FOR i IN 1..v_konyvek.COUNT LOOP
-    DBMS_OUTPUT.PUT_LINE('Kˆnyv ID: ' || v_konyvek(i).KONYV_ID || ', NÈv: ' || v_konyvek(i).NEV || ', ¡r: ' || v_konyvek(i).AR || ', Szerzı: ' || v_konyvek(i).SZERZO || ', Eladott pÈld·nyok sz·ma: ' || v_konyvek(i).ELADOTT_PELDANYOK_SZAMA);
-END LOOP;
+    FOR r_konyv IN c_konyv LOOP
+            DBMS_OUTPUT.PUT_LINE('K√∂nyv ID: ' || r_konyv.KONYV_ID || ', N√©v: ' || r_konyv.NEV || ', √År: ' || r_konyv.AR || ', Szerz≈ë: ' || r_konyv.SZERZO || ', Eladott p√©ld√°nyok sz√°ma: ' || r_konyv.ELADOTT_PELDANYOK_SZAMA);
+        END LOOP;
 END TOP3KONYV;
