@@ -26,7 +26,7 @@ $total_books = 0;
 </div>
 <div class="book-form-container books-container">
     <?php
-    $query = 'SELECT K.NEV, K.AR, KS.SZERZO FROM Konyv K INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
+    $query = 'SELECT K.Konyv_id, K.NEV, K.AR, KS.SZERZO FROM Konyv K INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
               INNER JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
               INNER JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes';
 
@@ -40,11 +40,13 @@ $total_books = 0;
 
     while ($row = oci_fetch_assoc($stid)) {
         echo '<div style="display: flex; align-items: center;">';
+        echo '<a href="adatlap.php?book_id=' . $row['KONYV_ID'] . '">';
         echo '<img id="borito" src="assets/imgs/istockphoto-1132160175-612x612-removebg-preview.png" alt="Borítókép">';
+        echo '</a>';
         echo '<div style="margin-left: 10px;">';
-        echo '<p>Cím: ' . $row['NEV'] . '</p>';
-        echo '<p>Szerző: ' . $row['SZERZO'] . '</p>';
-        echo '<p>Ár: ' . $row['AR'] . ' Ft</p>';
+        echo '<a href="adatlap.php?book_id=' . $row['KONYV_ID'] . '">' . $row['NEV'] . '</a>';
+        echo '<p>' . $row['SZERZO'] . '</p>';
+        echo '<p>' . $row['AR'] . ' Ft</p>';
         echo '</div>';
         echo '<form class="basketButton" method="post" action="kosar.php">';
         echo '<input type="hidden" name="book_title" value="' . $row['NEV'] . '">';
