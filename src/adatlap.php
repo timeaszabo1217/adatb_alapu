@@ -22,6 +22,16 @@ include 'process.php';
             text-align: left;
             padding: 8px;
         }
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            font-family: 'Roboto Light', sans-serif;
+            font-weight: lighter;
+            text-decoration: 1px underline #546248;
+        }
     </style>
 </head>
 <body>
@@ -44,10 +54,12 @@ if (isset($_GET['book_id']) && !empty($_GET['book_id'])) {
         echo '<img class="line user-select-none" src="assets/imgs/line1.png" alt="Választó vonal" style="margin-bottom: 0;">';
         echo '<div style="display: flex;">';
         echo '<img id="borito-adatlap" class="user-select-none" src="assets/imgs/istockphoto-1132160175-612x612-removebg-preview.png" alt="Borítókép">';
-        echo '<div style="margin-left: 60px; margin-top: 60px;">';
-        echo '<p>' . $row['SZERZO'] . '</p>';
+        echo '<div style="margin-left: 60px; margin-top: 80px;">';
+        $szerzo_google_keres = str_replace(' ', '+', $row['SZERZO']);
+        echo '<p><a href="https://www.google.com/search?q=' . $szerzo_google_keres . '" target="_blank">' . $row['SZERZO'] . '</a></p>';
         echo '<h2>' . $row['NEV'] . '</h2>';
-        echo '<p style="margin-bottom: 50px;">' . $row['KIADO'] . ' | ' . $row['KIADAS_EVE'] . ' | ' . $row['OLDALSZAM'] . '</p>';
+        $kiado_google_keres = str_replace(' ', '+', $row['KIADO']);
+        echo '<p style="margin-bottom: 50px;"><a href="https://www.google.com/search?q=' . $kiado_google_keres . '" target="_blank">' . $row['KIADO'] . '</a> | ' . $row['KIADAS_EVE'] . ' | ' . $row['OLDALSZAM'] . '</p>';
         echo '<table>';
         echo '<tr><td><strong>Szerző</strong></td><td><p style="margin: 0">' . $row['SZERZO'] . '</p></td></tr>';
         echo '<tr><td><strong>Cím</strong></td><td><p style="margin: 0">' . $row['NEV'] . '</p></td></tr>';
