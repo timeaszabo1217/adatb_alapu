@@ -1,6 +1,7 @@
 <?php
 include 'menu.php';
 include 'process.php';
+include 'index_procedures.php';
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +43,8 @@ if (isset($_GET['book_id']) && !empty($_GET['book_id'])) {
               KS.SZERZO, M.MUFAJ_MEGNEVEZES 
               FROM Konyv K 
               INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
-              INNER JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
-              INNER JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes
+              LEFT JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
+              LEFT JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes
               WHERE K.KONYV_ID = :book_id";
     $stid = oci_parse(database(), $query);
     oci_bind_by_name($stid, ':book_id', $book_id);
@@ -68,7 +69,9 @@ if (isset($_GET['book_id']) && !empty($_GET['book_id'])) {
         echo '<tr><td><strong>Oldalszám</strong></td><td><p style="margin: 0">' . $row['OLDALSZAM'] . '</p></td></tr>';
         echo '<tr><td><strong>Méret</strong></td><td><p style="margin: 0">' . $row['MERET'] . '</p></td></tr>';
         echo '<tr><td><strong>Kötet</strong></td><td><p style="margin: 0">' . $row['KOTET'] . '</p></td></tr>';
-        echo '<tr><td><strong>Műfaj</strong></td><td><p style="margin: 0">' . $row['MUFAJ_MEGNEVEZES'] . '</p></td></tr>';
+        if (!empty($row['MUFAJ_MEGNEVEZES'])) {
+            echo '<tr><td><strong>Műfaj</strong></td><td><p style="margin: 0">' . $row['MUFAJ_MEGNEVEZES'] . '</p></td></tr>';
+        }
         echo '<tr><td><strong>Eladott példányok száma</strong></td><td><p style="margin: 0">' . $row['ELADOTT_PELDANYOK_SZAMA'] . '</p></td></tr>';
         echo '</table>';
         echo '</div>';
@@ -91,11 +94,11 @@ if (isset($_GET['book_id']) && !empty($_GET['book_id'])) {
         echo '</div>';
         echo '</div>';
     } else {
-        echo '<p>A könyv adatai nem találhatók.</p>';
+        echo '<p style="margin: 20px 50px;">A könyv adatai nem találhatók.</p>';
     }
     oci_free_statement($stid);
 } else {
-    echo '<p>Nincs megadva könyv azonosító.</p>';
+    echo '<p style="margin: 20px 50px;">Nincs megadva könyv azonosító.</p>';
 }
 oci_close(database());
 ?>
