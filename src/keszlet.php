@@ -69,7 +69,7 @@ if (isset($_GET['book_id']) && !empty($_GET['book_id'])) {
         echo '</div>';
         echo '</div>';
     } else {
-        echo '<p style="margin: 20px 50px;">A könyv adatai nem találhatók.</p>';
+        echo '<p style="margin: 20px 50px;">A könyv nem található egy áruházban sem.</p>';
     }
     oci_free_statement($stid);
 } else {
