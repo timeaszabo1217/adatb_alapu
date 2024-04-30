@@ -1,6 +1,5 @@
 <?php
 include 'menu.php';
-$connection = null;
 include 'process.php';
 ?>
 
@@ -20,26 +19,38 @@ include 'process.php';
 <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <div style="margin: 0 auto; width: 50%;">
     <?php
-    $query = 'SELECT K.NEV, K.AR, KS.SZERZO FROM Konyv K INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id ORDER BY K.Eladott_peldanyok_szama DESC FETCH FIRST 3 ROWS ONLY';
-    $stid = oci_parse(database(), $query);
-    oci_execute($stid);
+    $enable = oci_parse(database(), 'BEGIN DBMS_OUTPUT.ENABLE(NULL); END;');
+    oci_execute($enable);
 
-    while ($row = oci_fetch_assoc($stid)) {
-        echo '<div style="margin: 0 30px; display: inline-block; text-align: center; width: 150px; min-height: 400px">';
-        echo '<img id="borito" src="assets/imgs/istockphoto-1132160175-612x612-removebg-preview.png" alt="Borítókép">';
-        echo '<p style="height: 40px">' . $row['NEV'] . '</p>';
-        echo '<p style="height: 20px">' . $row['SZERZO'] . '</p>';
-        echo '<p style="height: 5px">_________________</p>';
-        echo '<p>' . $row['AR'] . ' Ft</p>';
-        echo '<form method="post" action="kosar.php">';
-        echo '<input type="hidden" name="book_title" value="' . $row['NEV'] . '">';
-        echo '<input type="hidden" name="book_price" value="' . $row['AR'] . '">';
-        echo '<input class="continueButton" type="submit" value="Kosárba">';
-        echo '</form>';
-        echo '</div>';
+    $query = oci_parse(database(), 'BEGIN TOP3KONYV(); END;');
+    oci_execute($query);
+
+    $output = oci_parse(database(), 'BEGIN DBMS_OUTPUT.GET_LINE(:line, :status); END;');
+    oci_bind_by_name($output, ':line', $line, 32767);
+    oci_bind_by_name($output, ':status', $status);
+    echo '<div style="display: flex">';
+    while ($status == 0) {
+        oci_execute($output);
+        $data = explode(', ', $line);
+        if (isset($data[1]) && isset($data[2]) && isset($data[3])) {
+            echo '<div style="width: 150px; margin: 0 auto; text-align: center;">';
+            echo '<img id="borito" src="assets/imgs/istockphoto-1132160175-612x612-removebg-preview.png" alt="Borítókép">';
+            echo '<p style="height: 40px">' . explode(': ', $data[1])[1] . '</p>';
+            echo '<p style="height: 20px">' . explode(': ', $data[3])[1] . '</p>';
+            echo '<p style="height: 5px">_________________</p>';
+            echo '<p>' . explode(': ', $data[2])[1] . ' Ft</p>';
+            echo '<form method="post" action="kosar.php">';
+            echo '<input type="hidden" name="book_title" value="' . explode(': ', $data[1])[1] . '">';
+            echo '<input type="hidden" name="book_price" value="' . explode(': ', $data[2])[1] . '">';
+            echo '<input class="continueButton" type="submit" value="Kosárba">';
+            echo '</form>';
+            echo '</div>';
+        }
     }
-    oci_free_statement($stid);
-    oci_close($connection);
+    echo '</div>';
+
+    oci_free_statement($output);
+    oci_close(database());
     ?>
 </div>
 </body>
