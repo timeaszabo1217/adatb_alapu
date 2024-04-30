@@ -2,7 +2,7 @@
 include 'process.php';
 $total_books = 0;
 ?>
-<img src="assets/imgs/header.png" alt="header" style="width: 100%;">
+<img class="user-select-none" src="assets/imgs/header.png" alt="header" style="width: 100%;">
 <h1>Könyvek</h1>
 <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <div class="sidebar">
@@ -41,7 +41,7 @@ $total_books = 0;
     while ($row = oci_fetch_assoc($stid)) {
         echo '<div style="display: flex; align-items: center;">';
         echo '<a href="adatlap.php?book_id=' . $row['KONYV_ID'] . '">';
-        echo '<img id="borito" src="assets/imgs/istockphoto-1132160175-612x612-removebg-preview.png" alt="Borítókép">';
+        echo '<img class="user-select-none" id="borito" src="assets/imgs/istockphoto-1132160175-612x612-removebg-preview.png" alt="Borítókép">';
         echo '</a>';
         echo '<div style="margin-left: 10px;">';
         echo '<a href="adatlap.php?book_id=' . $row['KONYV_ID'] . '">' . $row['NEV'] . '</a>';

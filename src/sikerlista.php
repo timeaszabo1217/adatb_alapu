@@ -14,7 +14,7 @@ include 'process.php';
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
 </head>
 <body>
-<img src="assets/imgs/header.png" alt="header" style="width: 100%;">
+<img class="user-select-none" src="assets/imgs/header.png" alt="header" style="width: 100%;">
 <h1>Sikerlista</h1>
 <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <div class="book-form-container books-container" style="margin-left: 300px;">
@@ -29,7 +29,7 @@ include 'process.php';
     while ($row = oci_fetch_assoc($stid)) {
         echo '<div style="display: flex; align-items: center;">';
         echo '<a href="adatlap.php?book_id=' . $row['KONYV_ID'] . '">';
-        echo '<img id="borito" src="assets/imgs/istockphoto-1132160175-612x612-removebg-preview.png" alt="Borítókép">';
+        echo '<img  class="user-select-none"id="borito" src="assets/imgs/istockphoto-1132160175-612x612-removebg-preview.png" alt="Borítókép">';
         echo '</a>';
         echo '<div style="margin-left: 10px;">';
         echo '<a href="adatlap.php?book_id=' . $row['KONYV_ID'] . '">' . $row['NEV'] . '</a>';
