@@ -3,13 +3,12 @@ include 'process.php';
 include 'menu.php';
 $total_books = 0;
 
-
 if (isset($_GET['kereses']) && !empty($_GET['kereses'])) {
 $kereses = strtolower($_GET['kereses']);
-
 ?>
 <div class="book-form-container books-container">
     <?php
+
 
     $query = 'SELECT K.Konyv_id, K.NEV, K.AR, KS.SZERZO FROM Konyv K 
           INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
@@ -19,13 +18,9 @@ $kereses = strtolower($_GET['kereses']);
           OR LOWER(TRANSLATE(KS.SZERZO, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE :kereses';
 
 
-    $stid = oci_parse(database(), $query);
-
-
-    $kereses_param = '%' . $kereses . '%';
-    oci_bind_by_name($stid, ':kereses', $kereses_param);
 
     // Végrehajtjuk a lekérdezést
+
     oci_execute($stid);
 
     while ($row = oci_fetch_assoc($stid)) {
@@ -49,10 +44,8 @@ $kereses = strtolower($_GET['kereses']);
     }
     oci_free_statement($stid);
     echo '<p>Találatok száma: ' . $total_books . '</p>';
-
     } else {
         echo "Nincs találat.";
     }
     ?>
-
 </div>
