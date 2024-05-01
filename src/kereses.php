@@ -17,7 +17,12 @@ $kereses = strtolower($_GET['kereses']);
           WHERE LOWER(TRANSLATE(K.NEV, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE :kereses 
           OR LOWER(TRANSLATE(KS.SZERZO, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE :kereses';
 
+  
+    $stid = oci_parse(database(), $query);
 
+
+    $kereses_param = '%' . $kereses . '%'; // Wildcard hozzáadása
+    oci_bind_by_name($stid, ':kereses', $kereses_param);
 
     // Végrehajtjuk a lekérdezést
 
