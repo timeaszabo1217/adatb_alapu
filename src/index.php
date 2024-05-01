@@ -17,7 +17,7 @@ include 'index_procedures.php';
 <img src="assets/imgs/header.png" alt="header" style="width: 100%;">
 
 <h1>Legújabb könyveink</h1>
-<a href="sikerlista.php" style="float: right; margin-right: 60px">Teljes lista</a>
+<a href="ujdonsagok.php" style="float: right; margin-right: 60px">Teljes lista</a>
 <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <?php
     executeProcedure('TOP5KONYV');
