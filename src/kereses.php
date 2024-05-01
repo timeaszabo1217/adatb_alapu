@@ -16,16 +16,16 @@ $kereses = strtolower($_GET['kereses']);
               INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
               INNER JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
               INNER JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes 
-              WHERE LOWER(K.NEV) LIKE :kereses';
+              WHERE LOWER(K.NEV) LIKE :kereses OR LOWER(KS.SZERZO) LIKE :kereses';
 
 
     $stid = oci_parse(database(), $query);
 
 
-    $kereses_param = '%' . $kereses . '%'; // Wildcard hozzáadása
+    $kereses_param = '%' . $kereses . '%';
     oci_bind_by_name($stid, ':kereses', $kereses_param);
 
-   
+
     oci_execute($stid);
 
     while ($row = oci_fetch_assoc($stid)) {
