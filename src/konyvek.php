@@ -1,6 +1,6 @@
 <?php
 include 'menu.php';
-include 'sidebar.php';
+include 'oldalmenu.php';
 $connection = null;
 ?>
 

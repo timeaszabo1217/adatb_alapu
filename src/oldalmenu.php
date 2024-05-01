@@ -27,7 +27,7 @@ $total_books = 0;
 <div class="book-form-container books-container">
     <?php
     $query = 'SELECT K.Konyv_id, K.NEV, K.AR, KS.SZERZO FROM Konyv K INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
-              Left JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
+              LEFT JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
               LEFT JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes';
 
     if (isset($_GET['genres']) && !empty($_GET['genres'])) {

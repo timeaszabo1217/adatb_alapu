@@ -24,8 +24,6 @@ $kosár_tartalma = $_SESSION['cart'];
 foreach ($kosár_tartalma as $könyv) {
     $book_title = $könyv['title'];
     $book_price = $könyv['price'];
-
-
     $query_check = "SELECT COUNT(*) AS count FROM VasarloKonyv WHERE Vasarlo_email = :user_email AND Konyv_id IN (SELECT Konyv_id FROM Konyv WHERE Nev = :book_title AND Ar = :book_price)";
     $stid_check = oci_parse(database(), $query_check);
     oci_bind_by_name($stid_check, ':user_email', $user_email);

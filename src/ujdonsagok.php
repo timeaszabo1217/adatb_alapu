@@ -19,7 +19,10 @@ include 'process.php';
 <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <div style="margin-left: 40px; margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: left;">
     <?php
-    $query = 'SELECT K.KONYV_ID, K.NEV, K.AR, KS.SZERZO FROM Konyv K INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id ORDER BY K.Konyv_id DESC FETCH FIRST 12 ROWS ONLY';
+    $query = 'SELECT K.KONYV_ID, K.NEV, K.AR, KS.SZERZO
+              FROM Konyv K 
+              INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
+              ORDER BY K.Konyv_id DESC FETCH FIRST 12 ROWS ONLY';
     $stid = oci_parse(database(), $query);
     oci_execute($stid);
 
