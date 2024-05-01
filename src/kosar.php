@@ -2,17 +2,15 @@
 include 'menu.php';
 include 'process.php';
 
-// Kosár tartalmának inicializálása, ha még nem létezik
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Ha a kosárba rakás gombra kattintottak az előző oldalon
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title']) && isset($_POST['book_price'])) {
     $book_title = $_POST['book_title'];
     $book_price = $_POST['book_price'];
 
-    // Hozzáadás a kosárhoz
     $_SESSION['cart'][] = ['title' => $book_title, 'price' => $book_price];
 }
 ?>
