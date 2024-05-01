@@ -4,7 +4,6 @@ include  'menu.php';
 
 
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
-    // Ha a kosár üres, akkor valószínűleg valami hiba történt, visszairányítjuk a felhasználót az előző oldalra
     header("Location: kosar.php");
     exit;
 }
