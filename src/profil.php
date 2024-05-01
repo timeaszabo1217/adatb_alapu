@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Kezdés időpontja: <?php echo $user['KEZDES_IDOPONTJA'] ?? ''; ?></p>
         <p>Beosztás: <?php echo $user['BEOSZTAS'] ?? ''; ?></p>
 
-        <h1>Profil módosítása</h1>
+        <h1 style="margin-left: 0;">Profil módosítása</h1>
         <form method="post" action="">
             <input type="hidden" name="email" value="<?php echo $_SESSION['username']; ?>">
 
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Utca: <?php echo $user['UTCA'] ?? ''; ?></p>
         <p>Megjegyzés: <?php echo $user['MEGJEGYZES'] ?? ''; ?></p>
 
-        <h1>Profil módosítása</h1>
+        <h1 style="margin-left: 0;">Profil módosítása</h1>
         <form method="post" action="">
             <input type="hidden" name="email" value="<?php echo $_SESSION['username']; ?>">
             <p><label for="postal_code">Irányítószám:</label></p><br>
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     <?php }?>
 
-    <h1>Profil törlése</h1>
+    <h1 style="margin-left: 0;">Profil törlése</h1>
     <form method="post" action="">
         <input type="hidden" name="email" value="<?php echo $_SESSION['username']; ?>">
         <input class="continueButton" type="submit" name="delete" value="Fiók törlése"><br>
