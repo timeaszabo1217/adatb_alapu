@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <div class="container">
-    <h1>Profil</h1>
+    <h1 style="margin-left: 0;">Profil</h1>
     <?php if ($_SESSION['user_type'] === 'admin') { ?>
         <p>Email: <?php echo $_SESSION['username']; ?></p>
         <p>Kezdés időpontja: <?php echo $user['KEZDES_IDOPONTJA'] ?? ''; ?></p>

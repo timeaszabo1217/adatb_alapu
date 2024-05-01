@@ -17,7 +17,7 @@ include 'process.php';
 <div class="container">
     <a href="index.php" style="position: absolute; top: 0; left: 0;">↶ Vissza a főoldalra</a>
 
-    <h1>Regisztráció</h1>
+    <h1 style="margin-left: 0;">Regisztráció</h1>
 
     <?php
 
