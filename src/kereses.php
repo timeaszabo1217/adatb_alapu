@@ -17,7 +17,7 @@ $kereses = strtolower($_GET['kereses']);
                  LOWER(TRANSLATE(K.NEV, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE LOWER(:kereses) OR 
                  LOWER(TRANSLATE(KS.SZERZO, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE LOWER(:kereses))';
     $stid = oci_parse(database(), $query);
-    $kereses_param = '%' . $kereses . '%'; // Wildcard hozzáadása
+    $kereses_param = '%' . $kereses . '%';
     oci_bind_by_name($stid, ':kereses', $kereses_param);
     oci_execute($stid);
 
