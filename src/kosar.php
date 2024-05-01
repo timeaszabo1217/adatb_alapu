@@ -42,7 +42,6 @@ while ($row = oci_fetch_assoc($stid)) {
 if (!empty($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $item) {
         echo '<div style="margin-left: 60px;">';
-        // A kosárban lévő könyv információk megjelenítése
         echo '<p>Cím: ' . $item['title'] . ', Ár: ' . $item['price'] . ' Ft</p>';
         $total_price += $item['price'];
         echo '</div>';
@@ -51,7 +50,6 @@ if (!empty($_SESSION['cart'])) {
     echo '<div style="margin-left: 60px;"><p>Még nincs termék a kosaradban, nézz szét a <a href="konyvek.php">Könyvek</a> oldalon.</p></div>';
 }
 
-// A vizuális elemek csak akkor jelennek meg, ha van valami a kosárban
 if ($total_price > 0):
     ?>
     <img class="line" src="assets/imgs/line2.png" alt="Választó vonal">
