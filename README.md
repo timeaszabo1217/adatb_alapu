@@ -22,45 +22,47 @@ az üzletben. Az adminisztrátorok könyveket, műfajokat, áruházakat és azok
   - A bejelentkezett felhasználók kijelentkezhetnek
 - Könyvek kezelése:
   - A rendszer lehetővé teszi a könyvek hozzáadását, szerkesztését és törlését az arra 
-  jogosultaknak
-  - A könyvek adatai között szerepelnek: név, kiadás éve, kiadó, szerző, oldalszám, kötés, méret, ár
+jogosultaknak
+  - A könyvek adatai között szerepelnek: név, kiadás éve, kiadó, szerző, oldalszám, kötés, méret, 
+ár, műfaj
 - Könyvek keresése és szűrése:
   - Keresés címre, szerzőre
+  - Szűrés műfajokra
   - A találatok számát kigyűjti a rendszer
-  - Szűrés legolcsóbbtól kezdődően
-  - Szűrés felkapott könyvekre, műfajonként is
-  - A rendszer alapértelmezetten legfelkapottabb könyvek szerinti sorrendben jeleníti meg a 
-  találatokat
-  - A Top 3 könyvet kiemeli a rendszer
 - Könyvadatlapok megtekintése:
-  - Az adott könyv oldalán megjelenítésre kerülnek azok a könyvek, amelyeket más vásárlók 
-  szintén megvásároltak
+  - Az adott könyv oldalán megjelenítésre kerülnek a könyv adatai és kosárba helyezhetjük azt
+  - Megtekinthetjük a könyv elérhetőségét az áruházakban
+  - A szerzőre és kiadóra kattintva egy google keresést indíthatunk el
 - Legújabb könyvek megjelenítése:
-  - A kezdőoldalon megjelennek a legújabb könyvek
+  - A kezdőoldalon megjelenik a 5 legutóbb felvitt könyv
+  - Az újdonságok oldalon részletesebb listát kapunk
+- Legfelkapottabb könyvek megjelenítése:
+  - A kezdőoldalon megjelenik a 3 legtöbbet eladott könyv
+  - Az sikerlista oldalon a teljes listát láthatjuk
 - Műfajok kezelése:
   - A rendszer lehetővé teszi műfajok és alműfajok hozzáadását, szerkesztését és törlését az 
-  adminisztrátoroknak
+adminisztrátoroknak
   - Könyvek sorolhatók műfajokba
-- Műfajok számlálása:
-  - A rendszer összeszámolja, hogy hány könyv tartozik egy adott műfajba
 - Áruházak kezelése:
   - Az országban több üzlet tartozhat a könyvesbolt-hálózathoz
   - A rendszer lehetővé teszi az áruházak hozzáadását, szerkesztését és törlését az 
-  adminisztrátoroknak
+adminisztrátoroknak
 - Könyvek elérhetősége áruházakban:
-  - A rendszer megjeleníti, hogy egy adott könyv melyik áruházban kapható
-- Készlet nyilvántartása:
+  - A rendszer megjeleníti, hogy egy adott könyv melyik áruházakban kapható
+- Készlet nyilvántartása: 
   - A rendszer nyilvántartja a készleteket boltonként
-- Készlet kimerülésének figyelése:
+- Készlet kimerülésének figyelése: 
   - A rendszer figyelmeztetést küld, ha egy termék készlete kimerül
 - Kosár:
   - A felhasználó kosárba helyezheti a megvásárolni kívánt könyveket
   - A felhasználó törölhet elemeket a kosarából még a fizetés végbemenetele előtt
+- Könyv statisztikáinak aktualizálása:
+  - A rendszer növeli a könyv eladott példány számát, ha a vásárló megveszi azt
 - Vásárlás:
-  - A felhasználó választhat kiszállítással vagy üzletben történő átvétellel
+  - A felhasználó választhat kiszállítást vagy üzletben történő átvételt
+  - A felhasználó választhat bankkártyás vagy készpénzes fizetési módot
   - Számla készítése a vásárlásról
-- Kávézó itallapjának megjelenítése:
-  - Az online felületen elérhető lesz a kávézó itallapja
+  - A felhasználó megvásárolt könyveit tárolja a rendszer
 
 ```plaintext
           ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀
