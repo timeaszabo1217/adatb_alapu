@@ -19,9 +19,10 @@ include 'process.php';
 <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <div style="margin-left: 40px; margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: left;">
     <?php
-    $query = 'SELECT K.KONYV_ID, K.NEV, K.AR, KS.SZERZO
+    $query = 'SELECT K.KONYV_ID, K.NEV, K.AR, KS.SZERZO, MAX(K.KONYV_ID) OVER () AS MAX_KONYV_ID
               FROM Konyv K 
               INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
+              GROUP BY K.KONYV_ID, K.NEV, K.AR, KS.SZERZO
               ORDER BY K.Konyv_id DESC FETCH FIRST 12 ROWS ONLY';
     $stid = oci_parse(database(), $query);
     oci_execute($stid);
@@ -36,7 +37,7 @@ include 'process.php';
         echo '<p style="height: 5px; margin-bottom: 5px;">_________________</p>';
         echo '<p>' . $row['AR'] . ' Ft</p>';
         echo '<form method="post" action="kosar.php">';
-        echo '<input type="hidden" name="book_id" value="' . $row['KONYV_ID'] . '">';
+        echo '<input type="hidden" name="book_id" value="' . $row['MAX_KONYV_ID'] . '">';
         echo '<input type="hidden" name="book_title" value="' . $row['NEV'] . '">';
         echo '<input type="hidden" name="book_price" value="' . $row['AR'] . '">';
         echo '<input class="continueButton" type="submit" value="Kosárba">';

@@ -19,10 +19,11 @@ include 'process.php';
 <img class="line" src="assets/imgs/line1.png" alt="Választó vonal">
 <div class="book-form-container books-container" style="margin-left: 300px;">
     <?php
-    $query = 'SELECT K.KONYV_ID, K.NEV, K.AR, KS.SZERZO, K.ELADOTT_PELDANYOK_SZAMA 
-              FROM Konyv K 
-              INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
-              ORDER BY K.ELADOTT_PELDANYOK_SZAMA DESC';
+    $query = 'SELECT K.KONYV_ID, K.NEV, K.AR, KS.SZERZO, MAX(K.ELADOTT_PELDANYOK_SZAMA) AS MAX_ELADOTT
+                FROM Konyv K 
+                INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
+                GROUP BY K.KONYV_ID, K.NEV, K.AR, KS.SZERZO
+                ORDER BY MAX_ELADOTT DESC';
     $stid = oci_parse(database(), $query);
     oci_execute($stid);
 
@@ -34,7 +35,7 @@ include 'process.php';
         echo '<div style="margin-left: 10px;">';
         echo '<a href="adatlap.php?book_id=' . $row['KONYV_ID'] . '">' . $row['NEV'] . '</a>';
         echo '<p>' . $row['SZERZO'] . '</p>';
-        echo '<p>Eladott példányok száma: ' . $row['ELADOTT_PELDANYOK_SZAMA'] . '</p>';
+        echo '<p>Eladott példányok száma: ' . $row['MAX_ELADOTT'] . '</p>';
         echo '</div>';
         echo '<div style="margin-left: 500px; position: absolute; transform: translateX(100%); ">';
         echo '<p>' . $row['AR'] . ' Ft</p>';

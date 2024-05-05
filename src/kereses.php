@@ -8,14 +8,16 @@ $kereses = strtolower($_GET['kereses']);
 ?>
 <div class="book-form-container books-container">
     <?php
-    $query = 'SELECT K.Konyv_id, K.NEV, K.AR, KS.SZERZO FROM Konyv K 
-          INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
-          LEFT JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
-          LEFT JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes 
-          WHERE (LOWER(K.NEV) LIKE LOWER(:kereses) OR 
-                 LOWER(KS.SZERZO) LIKE LOWER(:kereses) OR 
-                 LOWER(TRANSLATE(K.NEV, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE LOWER(:kereses) OR 
-                 LOWER(TRANSLATE(KS.SZERZO, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE LOWER(:kereses))';
+    $query = 'SELECT K.Konyv_id, K.NEV, K.AR, KS.SZERZO, COUNT(*) OVER () AS OSSZES_KONYV
+            FROM Konyv K 
+            INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
+            LEFT JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
+            LEFT JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes 
+            WHERE (LOWER(K.NEV) LIKE LOWER(:kereses) OR 
+                LOWER(KS.SZERZO) LIKE LOWER(:kereses) OR 
+                LOWER(TRANSLATE(K.NEV, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE LOWER(:kereses) OR 
+                LOWER(TRANSLATE(KS.SZERZO, \'áéíóöőúüű\', \'aeiooouuu\')) LIKE LOWER(:kereses))
+            GROUP BY K.Konyv_id, K.NEV, K.AR, KS.SZERZO';
     $stid = oci_parse(database(), $query);
     $kereses_param = '%' . $kereses . '%';
     oci_bind_by_name($stid, ':kereses', $kereses_param);
