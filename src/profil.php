@@ -14,8 +14,7 @@ $favoriteAuthor = '';
 $favoriteGenre = '';
 
 if ($_SESSION['user_type'] === 'vasarlo') {
-    // Kedvenc szerző lekérdezése
-    $queryFavoriteAuthor = "SELECT KS.Szerzo, COUNT(*) AS Vasarolt_konyvek_szama
+    $query = "SELECT KS.Szerzo, COUNT(*) AS Vasarolt_konyvek_szama
                             FROM Vasarlo V
                             INNER JOIN VasarloKonyv VK ON V.Vasarlo_email = VK.Vasarlo_email
                             INNER JOIN KonyvSzerzo KS ON VK.Konyv_id = KS.Konyv_id
@@ -23,13 +22,12 @@ if ($_SESSION['user_type'] === 'vasarlo') {
                             GROUP BY KS.Szerzo
                             ORDER BY COUNT(*) DESC
                             FETCH FIRST 1 ROW ONLY";
-    $resultFavoriteAuthor = oci_parse(database(), $queryFavoriteAuthor);
-    oci_execute($resultFavoriteAuthor);
-    $rowFavoriteAuthor = oci_fetch_assoc($resultFavoriteAuthor);
+    $result = oci_parse(database(), $query);
+    oci_execute($result);
+    $rowFavoriteAuthor = oci_fetch_assoc($result);
     $favoriteAuthor = $rowFavoriteAuthor['SZERZO'] ?? '';
 
-    // Kedvenc műfaj lekérdezése
-    $queryFavoriteGenre = "SELECT M.Mufaj_megnevezes, COUNT(*) AS Vasarolt_konyvek_szama
+    $query = "SELECT M.Mufaj_megnevezes, COUNT(*) AS Vasarolt_konyvek_szama
                            FROM Vasarlo V
                            INNER JOIN VasarloKonyv VK ON V.Vasarlo_email = VK.Vasarlo_email
                            INNER JOIN KonyvMufaj KM ON VK.Konyv_id = KM.Konyv_id
@@ -38,9 +36,9 @@ if ($_SESSION['user_type'] === 'vasarlo') {
                            GROUP BY M.Mufaj_megnevezes
                            ORDER BY COUNT(*) DESC
                            FETCH FIRST 1 ROW ONLY";
-    $resultFavoriteGenre = oci_parse(database(), $queryFavoriteGenre);
-    oci_execute($resultFavoriteGenre);
-    $rowFavoriteGenre = oci_fetch_assoc($resultFavoriteGenre);
+    $result = oci_parse(database(), $query);
+    oci_execute($result);
+    $rowFavoriteGenre = oci_fetch_assoc($result);
     $favoriteGenre = $rowFavoriteGenre['MUFAJ_MEGNEVEZES'] ?? '';
 }
 

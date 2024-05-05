@@ -280,7 +280,6 @@ if (isset($_POST["aruhaz_assign"])) {
                       FROM Konyv K
                       LEFT JOIN AruhazKonyv AK ON K.Konyv_id = AK.Konyv_id
                       GROUP BY K.NEV';
-
             $stid = oci_parse(database(), $query);
             oci_execute($stid);
 
@@ -329,11 +328,8 @@ if (isset($_POST["aruhaz_assign"])) {
                         INNER JOIN AruhazKonyv AK ON K.Konyv_id = AK.Konyv_id
                         INNER JOIN Aruhaz A ON AK.Aruhaz_id = A.Aruhaz_id
                         GROUP BY A.Varos';
-
-
             $stid = oci_parse(database(), $query);
             oci_execute($stid);
-
 
             while (($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) !== false) {
 

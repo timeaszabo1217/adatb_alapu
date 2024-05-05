@@ -10,11 +10,15 @@ $total_books = 0;
         <p style="margin-left: 60px; margin-bottom: 0;">Műfaj</p>
         <div class="genre-container">
             <?php
-            $query = "SELECT * FROM Mufaj";
+            $query = "SELECT M.MUFAJ_MEGNEVEZES, COUNT(K.Konyv_id) AS konyvek_szama
+                      FROM Mufaj M 
+                      LEFT JOIN KonyvMufaj KM ON M.MUFAJ_MEGNEVEZES = KM.Mufaj_megnevezes
+                      LEFT JOIN Konyv K ON KM.Konyv_id = K.Konyv_id
+                      GROUP BY M.MUFAJ_MEGNEVEZES";
             $stid = oci_parse(database(), $query);
             oci_execute($stid);
             while ($row = oci_fetch_assoc($stid)) {
-                echo '<label><input type="checkbox" name="genres[]" value="' . $row['MUFAJ_MEGNEVEZES'] . '"> ' . $row['MUFAJ_MEGNEVEZES'] . '</label><br>';
+                echo '<label><input type="checkbox" name="genres[]" value="' . $row['MUFAJ_MEGNEVEZES'] . '"> ' . $row['MUFAJ_MEGNEVEZES'] . ' (' . $row['KONYVEK_SZAMA'] . ')</label><br>';
             }
             oci_free_statement($stid);
             ?>
@@ -26,14 +30,19 @@ $total_books = 0;
 </div>
 <div class="book-form-container books-container">
     <?php
-    $query = 'SELECT K.Konyv_id, K.NEV, K.AR, KS.SZERZO FROM Konyv K INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
-              LEFT JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
-              LEFT JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes';
+    $query = 'SELECT M.MUFAJ_MEGNEVEZES || \' (\' || COUNT(K.Konyv_id) || \')\' AS MEGNEVEZES, K.Konyv_id, K.NEV, K.AR, KS.SZERZO
+          FROM Konyv K 
+          INNER JOIN KonyvSzerzo KS ON K.Konyv_id = KS.Konyv_id 
+          LEFT JOIN KonyvMufaj KM ON K.Konyv_id = KM.Konyv_id 
+          LEFT JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes';
 
     if (isset($_GET['genres']) && !empty($_GET['genres'])) {
         $selectedGenres = implode("','", $_GET['genres']);
         $query .= " WHERE M.MUFAJ_MEGNEVEZES IN ('$selectedGenres')";
     }
+
+    $query .= ' GROUP BY M.MUFAJ_MEGNEVEZES, K.Konyv_id, K.NEV, K.AR, KS.SZERZO
+            ORDER BY M.MUFAJ_MEGNEVEZES, K.NEV';
 
     $stid = oci_parse(database(), $query);
     oci_execute($stid);

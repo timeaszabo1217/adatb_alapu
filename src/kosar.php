@@ -6,7 +6,6 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title']) && isset($_POST['book_price'])) {
     $book_title = $_POST['book_title'];
     $book_price = $_POST['book_price'];
