@@ -20,7 +20,6 @@ include 'process.php';
     <h1 style="margin-left: 0;">Regisztráció</h1>
 
     <?php
-
     if(isset($_POST['register'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];

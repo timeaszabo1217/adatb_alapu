@@ -48,6 +48,5 @@ include 'process.php';
     oci_close($connection);
     ?>
 </div>
-
 </body>
 </html>

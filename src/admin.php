@@ -43,26 +43,22 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
 
     if (oci_fetch($stid)) {
         echo '<div>';
-        echo '<h2>Értesítések</h2>';
+        echo '<h2 style="margin-left: 60px;">Értesítések</h2>';
         echo '<ul>';
 
         do {
             $ertesites = oci_result($stid, 'ERTESITES');
             $konyvCime = oci_result($stid, 'KONYVCIME');
             $aruhazVaros = oci_result($stid, 'ARUHAZVAROS');
-            echo '<li>Figyelmeztetés, ebből a könyvből: ' . $konyvCime . ', ebben az áruházban: ' . $aruhazVaros . '            ' . $ertesites . '</li>';
+            echo '<li style="margin-left: 60px; list-style: none;"><p>Figyelmeztetés, ebből a könyvből: ' . $konyvCime . ', ebben az áruházban: ' . $aruhazVaros . '            ' . $ertesites . '</p></li>';
         } while (oci_fetch($stid));
         echo '</ul>';
         echo '</div>';
     } else {
-
-        echo '<div>Nincs új értesítés.</div>';
+        echo '<p style="margin-left: 60px;">Nincs új értesítés.</p>';
     }
-
     oci_free_statement($stid);
     ?>
-
-
 </div>
 </body>
 </html>

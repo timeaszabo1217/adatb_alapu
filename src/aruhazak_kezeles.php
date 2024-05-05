@@ -1,7 +1,6 @@
 <?php
 include 'menu.php';
 ?>
-
 <?php
 
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
@@ -9,7 +8,6 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     exit;
 }
 ?>
-
 <?php
 $connection = null;
 include 'process.php';
@@ -132,6 +130,19 @@ if (isset($_POST["aruhaz_assign"])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>𝐒𝐭𝐫𝐞𝐞𝐥𝐞𝐫</title>
+    <style>
+        #table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .th{
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
 <h1 style="text-align: center">Admin oldal</h1>
@@ -311,23 +322,6 @@ if (isset($_POST["aruhaz_assign"])) {
             </tbody>
         </table>
     </div>
-    <style>
-        #table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        .th{
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-            background-color: #f2f2f2;
-        }
-
-
-
-    </style>
-
     <div class="book-form-container">
         <h2>Áruházankénti választék</h2>
         <table id="table">
@@ -361,15 +355,8 @@ if (isset($_POST["aruhaz_assign"])) {
             }
             ?>
             </tbody>
-
-
-
-
-
-
-
-
-
+        </table>
+    </div>
 </main>
 </body>
 </html>

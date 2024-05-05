@@ -49,9 +49,6 @@ foreach ($kosár_tartalma as $könyv) {
     }
     oci_free_statement($stid_check);
 }
-
-
 $_SESSION['cart'] = [];
 header("Location: kosar.php");
 exit;
-?>

@@ -1,15 +1,12 @@
 <?php
 include 'menu.php';
 ?>
-
 <?php
-
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     header('Location: login.php');
     exit;
 }
 ?>
-
 <?php
 $connection = null;
 include 'process.php';
@@ -223,13 +220,6 @@ if (isset($_POST['szerzo_assign'])){
 
 
 }
-
-
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -512,8 +502,6 @@ if (isset($_POST['szerzo_assign'])){
             <input class="continueButton" type="submit" name="szerzo_assign" value="Hozzárendelés">
         </form>
     </div>
-
-
 </main>
 </body>
 </html>
