@@ -2,7 +2,6 @@
 include 'process.php';
 include  'menu.php';
 
-
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
     header("Location: kosar.php");
     exit;
@@ -13,13 +12,8 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-
 $user_email = $_SESSION['username'];
-
-
-
 $kosár_tartalma = $_SESSION['cart'];
-
 
 foreach ($kosár_tartalma as $könyv) {
     $book_title = $könyv['title'];
