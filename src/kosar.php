@@ -11,6 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title']) && isse
     $book_title = $_POST['book_title'];
     $book_price = $_POST['book_price'];
 
+    $query = "SELECT Ertesites FROM AruhazKonyv WHERE Konyv_id = (SELECT Konyv_id FROM Konyv WHERE NEV = :book_title)";
+    $stid = oci_parse(database(), $query);
+    oci_bind_by_name($stid, ':book_title', $book_title);
+    oci_execute($stid);
+    $row = oci_fetch_assoc($stid);
+    $notification = $row ? $row['ERTESITES'] : '';
+
     $_SESSION['cart'][] = ['title' => $book_title, 'price' => $book_price];
 }
 ?>
@@ -56,9 +63,15 @@ if ($total_price > 0):
     <div style="margin-left: 60px;">
         <p>Végösszeg: <?php echo $total_price; ?> Ft</p>
     </div>
-
     <form method="post" action="fizetes.php">
-        <input class="continueButton" type="submit" value="Fizetés">
+        <?php if ($notification === 'Nincs készleten'): ?>
+            <p style="color: #c15a5a; margin-left: 60px;">Ezt a könyvet jelenleg nem lehet megvásárolni, mert nincs készleten.</p>
+        <?php else: ?>
+            <?php if ($notification === 'Ez az utolsó könyv'): ?>
+            <p style="color: #c15a5a; margin-left: 60px;">Ez az utolsó példány ebből a könyvből, siess!</p>
+        <?php endif; ?>
+            <input class="continueButton" type="submit" value="Fizetés">
+        <?php endif; ?>
     </form>
 <?php endif; ?>
 

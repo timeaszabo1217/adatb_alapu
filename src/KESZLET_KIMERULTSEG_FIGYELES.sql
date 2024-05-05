@@ -1,13 +1,10 @@
-create or replace TRIGGER KESZLET_KIMERULTSEG_FIGYELES
-              AFTER UPDATE ON AruhazKonyv
-                        FOR EACH ROW
+CREATE OR REPLACE TRIGGER KESZLET_KIMERULTSEG_FIGYELES
+    BEFORE UPDATE OF Keszlet ON AruhazKonyv
+    FOR EACH ROW
 BEGIN
-
-    IF :NEW.Keszlet = 1 THEN
-
-UPDATE AruhazKonyv
-SET Ertesites = 'Figyelmeztetés: Már csak egy darab van készleten!'
-WHERE Aruhaz_id = :NEW.Aruhaz_id
-  AND Konyv_id = :NEW.Konyv_id;
-END IF;
+    IF :NEW.Keszlet = 0 THEN
+        :NEW.Ertesites := 'Nincs készleten';
+    ELSIF :NEW.Keszlet = 1 THEN
+        :NEW.Ertesites := 'Ez az utolsó könyv';
+    END IF;
 END;
