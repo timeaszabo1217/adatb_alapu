@@ -581,6 +581,7 @@ CREATE TABLE AruhazKonyv (
   Aruhaz_id NUMBER NOT NULL,
   Konyv_id NUMBER NOT NULL,
   Keszlet NUMBER,
+  Ertesites VARCHAR2(100),
   PRIMARY KEY (Aruhaz_id, Konyv_id),
   FOREIGN KEY (Aruhaz_id) REFERENCES Aruhaz(Aruhaz_id)
  ON DELETE CASCADE,
@@ -620,7 +621,7 @@ CREATE TABLE AdminAruhaz (
   PRIMARY KEY (Admin_email, Aruhaz_id),
   FOREIGN KEY (Admin_email) REFERENCES Admin(Admin_email)
  ON DELETE CASCADE,
-  FOREIGN KEY (Aruhaz_id) REFERENCES Aruhaz(Aruhaz_id) 
+  FOREIGN KEY (Aruhaz_id) REFERENCES Aruhaz(Aruhaz_id)
 ON DELETE CASCADE
 );
 
