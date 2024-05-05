@@ -12,6 +12,11 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
+if (checkAdmin($_SESSION['username'])) {
+    header('Location: admin.php');
+    exit;
+}
+
 $user_email = $_SESSION['username'];
 $kosár_tartalma = $_SESSION['cart'];
 
