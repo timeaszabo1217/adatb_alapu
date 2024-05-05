@@ -92,13 +92,31 @@ if (isset($_POST["aruhaz_modify"])) {
 
 if (isset($_POST["aruhaz_assign"])) {
     $konyv_id = $_POST["konyv_id"];
-    $selected_genre = $_POST["aruhaz_id"];
+    $selected_aruhaz_id = $_POST["aruhaz_id"];
 
-    $insert_query = "INSERT INTO ARUHAZKONYV (aruhaz_id, konyv_id) VALUES (:aruhaz_id, :konyv_id)";
-    $insert_stid = oci_parse(database(), $insert_query);
-    oci_bind_by_name($insert_stid, ':aruhaz_id', $selected_genre);
-    oci_bind_by_name($insert_stid, ':konyv_id', $konyv_id);
-    oci_execute($insert_stid);
+    $check_query = "SELECT COUNT(*) AS count FROM ARUHAZKONYV WHERE aruhaz_id = :aruhaz_id AND konyv_id = :konyv_id";
+    $check_stid = oci_parse(database(), $check_query);
+    oci_bind_by_name($check_stid, ':aruhaz_id', $selected_aruhaz_id);
+    oci_bind_by_name($check_stid, ':konyv_id', $konyv_id);
+    oci_execute($check_stid);
+    $row = oci_fetch_assoc($check_stid);
+    $count = $row['COUNT'];
+
+    if ($count > 0) {
+
+        $update_query = "UPDATE ARUHAZKONYV SET keszlet = keszlet + 1 WHERE aruhaz_id = :aruhaz_id AND konyv_id = :konyv_id";
+        $update_stid = oci_parse(database(), $update_query);
+        oci_bind_by_name($update_stid, ':aruhaz_id', $selected_aruhaz_id);
+        oci_bind_by_name($update_stid, ':konyv_id', $konyv_id);
+        oci_execute($update_stid);
+    } else {
+
+        $insert_query = "INSERT INTO ARUHAZKONYV (aruhaz_id, konyv_id, keszlet) VALUES (:aruhaz_id, :konyv_id, 1)";
+        $insert_stid = oci_parse(database(), $insert_query);
+        oci_bind_by_name($insert_stid, ':aruhaz_id', $selected_aruhaz_id);
+        oci_bind_by_name($insert_stid, ':konyv_id', $konyv_id);
+        oci_execute($insert_stid);
+    }
 
     header("Location: aruhazak_kezeles.php");
     exit();
