@@ -31,7 +31,7 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
 </div>
 <div>
     <?php
-    // Lekérdezés az értesítésekhez, ahol az értesítés nem null
+
     $query = "SELECT Ertesites, Konyv.Nev AS KonyvCime, Aruhaz.Varos AS AruhazVaros
           FROM AruhazKonyv
           INNER JOIN Konyv ON AruhazKonyv.Konyv_id = Konyv.Konyv_id
@@ -41,12 +41,11 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     $stid = oci_parse(database(), $query);
     oci_execute($stid);
 
-    // Ellenőrizze, hogy van-e értesítés
     if (oci_fetch($stid)) {
         echo '<div>';
         echo '<h2>Értesítések</h2>';
         echo '<ul>';
-        // Az összes értesítés kiírása
+
         do {
             $ertesites = oci_result($stid, 'ERTESITES');
             $konyvCime = oci_result($stid, 'KONYVCIME');
@@ -56,12 +55,10 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
         echo '</ul>';
         echo '</div>';
     } else {
-        // Ha nincs értesítés
+
         echo '<div>Nincs új értesítés.</div>';
     }
 
-
-    // Szabadítsd fel az erőforrásokat
     oci_free_statement($stid);
     ?>
 
