@@ -10,6 +10,39 @@ if (!isset($_SESSION['username'])) {
 }
 
 $user = getUserData($_SESSION['username']);
+$favoriteAuthor = '';
+$favoriteGenre = '';
+
+if ($_SESSION['user_type'] === 'vasarlo') {
+    // Kedvenc szerző lekérdezése
+    $queryFavoriteAuthor = "SELECT KS.Szerzo, COUNT(*) AS Vasarolt_konyvek_szama
+                            FROM Vasarlo V
+                            INNER JOIN VasarloKonyv VK ON V.Vasarlo_email = VK.Vasarlo_email
+                            INNER JOIN KonyvSzerzo KS ON VK.Konyv_id = KS.Konyv_id
+                            WHERE V.Vasarlo_email = '{$_SESSION['username']}'
+                            GROUP BY KS.Szerzo
+                            ORDER BY COUNT(*) DESC
+                            FETCH FIRST 1 ROW ONLY";
+    $resultFavoriteAuthor = oci_parse(database(), $queryFavoriteAuthor);
+    oci_execute($resultFavoriteAuthor);
+    $rowFavoriteAuthor = oci_fetch_assoc($resultFavoriteAuthor);
+    $favoriteAuthor = $rowFavoriteAuthor['SZERZO'] ?? '';
+
+    // Kedvenc műfaj lekérdezése
+    $queryFavoriteGenre = "SELECT M.Mufaj_megnevezes, COUNT(*) AS Vasarolt_konyvek_szama
+                           FROM Vasarlo V
+                           INNER JOIN VasarloKonyv VK ON V.Vasarlo_email = VK.Vasarlo_email
+                           INNER JOIN KonyvMufaj KM ON VK.Konyv_id = KM.Konyv_id
+                           INNER JOIN Mufaj M ON KM.Mufaj_megnevezes = M.Mufaj_megnevezes
+                           WHERE V.Vasarlo_email = '{$_SESSION['username']}'
+                           GROUP BY M.Mufaj_megnevezes
+                           ORDER BY COUNT(*) DESC
+                           FETCH FIRST 1 ROW ONLY";
+    $resultFavoriteGenre = oci_parse(database(), $queryFavoriteGenre);
+    oci_execute($resultFavoriteGenre);
+    $rowFavoriteGenre = oci_fetch_assoc($resultFavoriteGenre);
+    $favoriteGenre = $rowFavoriteGenre['MUFAJ_MEGNEVEZES'] ?? '';
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['update'])) {
@@ -48,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <div class="container">
-    <h1 style="margin-left: 0;">Profil</h1>
+    <h1 style="margin-left: 0;">Adataid</h1>
     <?php if ($_SESSION['user_type'] === 'admin') { ?>
         <p>Email: <?php echo $_SESSION['username']; ?></p>
         <p>Kezdés időpontja: <?php echo $user['KEZDES_IDOPONTJA'] ?? ''; ?></p>
@@ -72,6 +105,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Város: <?php echo $user['VAROS'] ?? ''; ?></p>
         <p>Utca: <?php echo $user['UTCA'] ?? ''; ?></p>
         <p>Megjegyzés: <?php echo $user['MEGJEGYZES'] ?? ''; ?></p>
+        <p>Kedvenc szerző (A szerző, akitől eddig a letöbbet vásároltál): <?php echo $favoriteAuthor; ?></p>
+        <p>Kedvenc műfaj (A műfaj, amiből eddig a letöbbet vásároltál): <?php echo $favoriteGenre; ?></p>
+
+
+
+
 
         <h1 style="margin-left: 0;">Profil módosítása</h1>
         <form method="post" action="">
