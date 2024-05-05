@@ -1,10 +1,12 @@
-CREATE OR REPLACE TRIGGER KESZLET_KIMERULTSEG_FIGYELES
+create or replace TRIGGER KESZLET_KIMERULTSEG_FIGYELES
     BEFORE UPDATE OF Keszlet ON AruhazKonyv
     FOR EACH ROW
 BEGIN
     IF :NEW.Keszlet = 0 THEN
-        :NEW.Ertesites := 'Nincs készleten';
+        :NEW.Ertesites := ' már nincs készleten.';
     ELSIF :NEW.Keszlet = 1 THEN
-        :NEW.Ertesites := 'Ez az utolsó könyv';
-    END IF;
+        :NEW.Ertesites := ' már csak egy darab van készleten.';
+ELSE
+        :NEW.Ertesites := NULL;
+END IF;
 END;
