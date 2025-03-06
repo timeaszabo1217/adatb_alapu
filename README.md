@@ -3,7 +3,9 @@
 Jelen projektben egy Könyvesbolt adatbázisának kidolgozása és annak kezelésének megoldása webes felületen volt a feladatunk.
 
 ## Csapattagok
-Szabó Tímea, Veszeli Karina, Nagy Péter
+- Szabó Tímea
+- Veszeli Karina
+- Nagy Péter
 
 ## Feladat szöveges leírása
 A Streeler könyvesbolt weboldal célja, hogy egy könnyen kezelhető platformot kínáljon a könyvek 
