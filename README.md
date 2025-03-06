@@ -17,7 +17,7 @@ bejelentkezhetnek, így lehetőségük van vásárlásra. Kosárba helyezhetik a
 törölhetnek elemeket belőle még a fizetés előtt. Választhatják a házhozszállítást vagy a személyes átvételt 
 az üzletben. Az adminisztrátorok könyveket, műfajokat, áruházakat és azok készleteit kezelhetik.
 
-## Követelménykatalógus
+## Követelmények
 - Regisztráció, bejelentkezés és kijelentkezés:
   - A látogatók regisztrálhatnak és böngészhetik a könyv kínálatot, azonban nem rendelhetnek
   - A regisztrált felhasználók bejelentkezhetnek a rendszerbe, így lehetőségük van a vásárlásra
