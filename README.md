@@ -1,6 +1,6 @@
 # Adatbázis alapú rendszerek
 
-Jelen projektben egy Könyvesbolt adatbázisának kidolgozása és annak kezelésének megoldása webes felületen a feladatunk.
+Jelen projektben egy Könyvesbolt adatbázisának kidolgozása és annak kezelésének megoldása webes felületen volt a feladatunk.
 
 ## Csapattagok
 Szabó Tímea, Veszeli Karina, Nagy Péter
